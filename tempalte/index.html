@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Cerdas - Satu Data Depok</title>
+    <!-- Memanggil file CSS eksternal dengan benar -->
+    <link rel="stylesheet" href="../static/style.css" />
+    <!-- Memuat library Tableau Embedding API v3 -->
+    <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+    <!-- Google Fonts untuk tipografi modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Header Judul / Identitas Dashboard -->
+        <header class="dashboard-header">
+            <div class="header-title">
+                <h1>📊 Dashboard Cerdas Satu Data Depok</h1>
+                <p>Analisis visualisasi data terpusat dan transparan</p>
+            </div>
+            <!-- 1. Tombol Analisa dengan desain modern & ikon -->
+            <div class="top-action-bar">
+                <button id="analisa-btn" class="btn-glow">
+                    <span class="icon">✨</span> Analisis Data (AI Insight)
+                </button>
+            </div>
+        </header>
+
+        <!-- 2. Area Tampilan Tableau Live Embed -->
+        <div class="tableau-wrapper">
+            <!-- Komponen web resmi Tableau v3 -->
+            <tableau-viz id="tableauViz" 
+                src="https://public.tableau.com/views/Proyek-Magang-Diskominfo/Dashboard1" 
+                toolbar="bottom" 
+                hide-tabs>
+            </tableau-viz>
+        </div>
+    </div>
+
+    <!-- Jendela Pop-up Modal untuk Hasil Analisis -->
+    <div id="modal-analisis" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🔍 Hasil Analisis & Insight Berdasarkan Filter</h2>
+                <span id="close-modal" class="close">&times;</span>
+            </div>
+            <div id="hasil-analisis" class="modal-body">
+                <p>Memuat analisis data...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memanggil file JavaScript eksternal -->
+    <script src="../static/script.js"></script>
+</body>
+</html>
