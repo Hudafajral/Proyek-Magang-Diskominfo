@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -147,4 +146,48 @@ tableau-viz {
 @keyframes slideUp {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive untuk layar kecil / HP */
+@media (max-width: 768px) {
+    body {
+        padding: 12px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 16px 20px;
+    }
+
+    .header-title h1 {
+        font-size: 18px;
+    }
+
+    #analisa-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tableau-wrapper {
+        padding: 12px;
+    }
+
+    tableau-viz {
+        height: 500px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+    }
+
+    .modal-header {
+        padding: 16px 20px;
+    }
+
+    .modal-body {
+        padding: 16px 20px;
+    }
 }
