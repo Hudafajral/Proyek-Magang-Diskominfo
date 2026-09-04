@@ -1,1 +1,30 @@
--e "__pycache__/\n*.csv\n*.xlsx\n.env\n.DS_Store" 
+# Environment & Secrets (Sangat Penting: jangan sampai bocor!)
+.env
+*.env
+.env.local
+
+# Python / Backend
+backend/venv/
+backend/.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+backend/__pycache__/
+backend/app/**/__pycache__/
+
+# Node / Frontend
+frontend/node_modules/
+node_modules/
+frontend/dist/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
