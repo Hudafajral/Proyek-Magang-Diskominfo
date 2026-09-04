@@ -1,0 +1,10 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.8.0
+pydantic-settings>=2.4.0
+playwright>=1.46.0
+redis>=5.0.8
+google-genai>=0.1.1
+anthropic>=0.34.0
+pillow>=10.4.0
+python-dotenv>=1.0.1
