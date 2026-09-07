@@ -115,9 +115,12 @@ Aplikasi ini menggunakan arsitektur terpisah (*decoupled*), sehingga Backend dan
    ```env
    GEMINI_API_KEY=masukkan_api_key_gemini_anda_di_sini
    PORT=8000
-   REDIS_HOST=localhost
-   REDIS_PORT=6379
-   REDIS_PASSWORD=
+
+   # Konfigurasi Redis Cloud (Sangat disarankan pakai Upstash agar praktis)
+   # Dapatkan kredensial gratis di [https://upstash.com/](https://upstash.com/)
+   REDIS_HOST=nama-database-kamu.upstash.io
+   REDIS_PORT=12345
+   REDIS_PASSWORD=password_dari_upstash
    ```
 
 6. **Jalankan Server Backend FastAPI:**
@@ -204,3 +207,6 @@ Aplikasi ini menggunakan arsitektur terpisah (*decoupled*), sehingga Backend dan
     ```bash
     playwright install chromium
     ```
+* **Kendala:** Proses analisis AI sangat lambat (memakan waktu 1 hingga 2 menit) padahal scraping Playwright selesai cepat.
+  * **Penyebab:** Sistem backend nyangkut menunggu batas waktu (timeout) karena server Redis lokal (localhost) mati atau belum terinstal.
+  * **Solusi:** Ganti pengaturan Redis lokal ke layanan cloud instan. Buat akun gratis di **Upstash Redis**, ambil endpoint URL, Port, dan Password-nya, lalu masukkan ke dalam file `.env`.
