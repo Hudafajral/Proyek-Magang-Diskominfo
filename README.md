@@ -1,6 +1,6 @@
 # 📊 AI Dashboard Insight
 
-Sistem otomasi analisis visual dashboard publik **Tableau Public** berbasis arsitektur decoupled modern. Sistem ini memanfaatkan **Playwright Headless Browser** untuk visual extraction, **Redis Visual-Hashing Cache** untuk efisiensi komputasi visual, serta **Multimodal Vision AI (Google Gemini)** untuk mengekstraksi metrik penting, mendeteksi anomali grafik, dan merangkum *executive summary* secara real-time.
+Sistem otomasi analisis visual dashboard publik **Tableau Public** berbasis arsitektur decoupled modern. Sistem ini memanfaatkan **Playwright Headless Browser** untuk visual extraction, **Redis Visual-Hashing Cache** untuk efisiensi komputasi visual, serta **Multimodal Vision AI (Google Gemini)** untuk mengekstraksi metrik penting, mendeteksi anomali grafik, dan merangkum *executive summary* secara real-time
 
 ---
 
