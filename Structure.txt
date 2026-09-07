@@ -1,0 +1,2223 @@
+Folder PATH listing for volume DATA
+Volume serial number is 00000052 D07C:9A40
+D:.
++---.venv
+¦   +---Include
+¦   ¦   +---site
+¦   ¦       +---python3.11
+¦   ¦           +---greenlet
+¦   +---Lib
+¦   ¦   +---site-packages
+¦   ¦       +---annotated_doc
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---annotated_doc-0.0.5.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---annotated_types
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---annotated_types-0.8.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---anthropic
+¦   ¦       ¦   +---lib
+¦   ¦       ¦   ¦   +---aws
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---bedrock
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---credentials
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---environments
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---google_cloud
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---middleware
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---sessions
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---streaming
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tools
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---vertex
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---_extras
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---_parse
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---resources
+¦   ¦       ¦   ¦   +---beta
+¦   ¦       ¦   ¦   ¦   +---agents
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---environments
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---memory_stores
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---messages
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---organization
+¦   ¦       ¦   ¦   ¦   ¦   +---federation
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---rules
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---service_accounts
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---workspaces
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---sessions
+¦   ¦       ¦   ¦   ¦   ¦   +---threads
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---skills
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---tunnels
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---vaults
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---messages
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---skills
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---tools
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---types
+¦   ¦       ¦   ¦   +---beta
+¦   ¦       ¦   ¦   ¦   +---agents
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---environments
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---memory_stores
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---messages
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---organization
+¦   ¦       ¦   ¦   ¦   ¦   +---federation
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---rules
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---service_accounts
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---workspaces
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---sessions
+¦   ¦       ¦   ¦   ¦   ¦   +---threads
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---skills
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---tunnels
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---vaults
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---messages
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---shared
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---skills
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_decoders
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_utils
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_vendor
+¦   ¦       ¦   ¦   +---httpx_aiohttp
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---anthropic-1.4.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---anyio
+¦   ¦       ¦   +---abc
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---streams
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_backends
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_core
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---anyio-4.15.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---certifi
+¦   ¦       ¦   +---tests
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---certifi-2026.7.22.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---cffi
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---cffi-2.1.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---charset_normalizer
+¦   ¦       ¦   +---cli
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---charset_normalizer-3.5.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---click
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---click-8.5.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---cryptography
+¦   ¦       ¦   +---hazmat
+¦   ¦       ¦   ¦   +---asn1
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---backends
+¦   ¦       ¦   ¦   ¦   +---openssl
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---bindings
+¦   ¦       ¦   ¦   ¦   +---openssl
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---_rust
+¦   ¦       ¦   ¦   ¦   ¦   +---openssl
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---decrepit
+¦   ¦       ¦   ¦   ¦   +---ciphers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---primitives
+¦   ¦       ¦   ¦   ¦   +---asymmetric
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---ciphers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---kdf
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---serialization
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---twofactor
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---x509
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---cryptography-50.0.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦   +---sboms
+¦   ¦       +---distro
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---distro-1.9.0.dist-info
+¦   ¦       +---docstring_parser
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---docstring_parser-0.18.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---dotenv
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---fastapi
+¦   ¦       ¦   +---.agents
+¦   ¦       ¦   ¦   +---skills
+¦   ¦       ¦   ¦       +---fastapi
+¦   ¦       ¦   ¦           +---references
+¦   ¦       ¦   +---dependencies
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---middleware
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---openapi
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---security
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_compat
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---fastapi-0.141.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---google
+¦   ¦       ¦   +---auth
+¦   ¦       ¦   ¦   +---aio
+¦   ¦       ¦   ¦   ¦   +---transport
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---compute_engine
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---crypt
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---transport
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---genai
+¦   ¦       ¦   ¦   +---tests
+¦   ¦       ¦   ¦   ¦   +---afc
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---batches
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---caches
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---chats
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---client
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---common
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---documents
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---errors
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---files
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---file_search_stores
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---gaos
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---imports
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---interactions
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---live
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---live_api
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---local_tokenizer
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---mcp
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---operations
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---public_samples
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---shared
+¦   ¦       ¦   ¦   ¦   ¦   +---batches
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---caches
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---chats
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---files
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---tunings
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---tokens
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---transformers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---tunings
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---_gaos
+¦   ¦       ¦   ¦   ¦   +---errors
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---lib
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   ¦   +---internal
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---resources
+¦   ¦       ¦   ¦   ¦   ¦   +---agents
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---environments
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---createenvironmentrequest
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---environment
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---interactions
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---codeexecutioncallstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---codemenderagentconfig
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---findrequest
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---fixrequest
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---environment
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---errorevent
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---googlemapscallstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---googlemapsresult
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---place
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---googlemapsresultstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---result
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---place
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---googlesearchcallstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---googlesearchresultstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---placecitation
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---retrievalcalldelta
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---stepdelta
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---tool
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---retrieval
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---transcriptionmode
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---urlcontextcallstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---urlcontextresultstep
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---usage
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---videocontent
+¦   ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---triggers
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---webhooks
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---types
+¦   ¦       ¦   ¦   ¦   ¦   +---agents
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---environments
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---interactions
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---triggers
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---webhooks
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---utils
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---_hooks
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---oauth2
+¦   ¦       ¦       +---__pycache__
+¦   ¦       +---google_auth-2.57.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---google_genai-2.22.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---greenlet
+¦   ¦       ¦   +---platform
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---tests
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---greenlet-3.5.5.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---h11
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---h11-0.16.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---httpcore
+¦   ¦       ¦   +---_async
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_backends
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_sync
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---httpcore-1.0.9.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---httpcore2
+¦   ¦       ¦   +---_async
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_backends
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_sync
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---httpcore2-2.12.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---httptools
+¦   ¦       ¦   +---parser
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---httptools-0.8.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦       +---vendor
+¦   ¦       ¦           +---http-parser
+¦   ¦       ¦           +---llhttp
+¦   ¦       +---httpx
+¦   ¦       ¦   +---_transports
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---httpx-0.28.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---httpx2
+¦   ¦       ¦   +---websockets
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_transports
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---httpx2-2.12.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---idna
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---idna-3.19.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---jiter
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---jiter-0.16.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦   +---sboms
+¦   ¦       +---PIL
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pillow-12.3.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦   +---sboms
+¦   ¦       +---pip
+¦   ¦       ¦   +---_internal
+¦   ¦       ¦   ¦   +---build_env
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---cli
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---commands
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---distributions
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---index
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---locations
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---metadata
+¦   ¦       ¦   ¦   ¦   +---importlib
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---models
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---network
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---operations
+¦   ¦       ¦   ¦   ¦   +---build
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---install
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---req
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---resolution
+¦   ¦       ¦   ¦   ¦   +---legacy
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---resolvelib
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---utils
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---vcs
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_vendor
+¦   ¦       ¦   ¦   +---cachecontrol
+¦   ¦       ¦   ¦   ¦   +---caches
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---certifi
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---distlib
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---distro
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---idna
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---msgpack
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---packaging
+¦   ¦       ¦   ¦   ¦   +---licenses
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pkg_resources
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---platformdirs
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pygments
+¦   ¦       ¦   ¦   ¦   +---filters
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---formatters
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---lexers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---styles
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pyproject_hooks
+¦   ¦       ¦   ¦   ¦   +---_in_process
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---requests
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---resolvelib
+¦   ¦       ¦   ¦   ¦   +---resolvers
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---rich
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tomli
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tomli_w
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---truststore
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---urllib3
+¦   ¦       ¦   ¦   ¦   +---contrib
+¦   ¦       ¦   ¦   ¦   ¦   +---emscripten
+¦   ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---http2
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---util
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pip-26.2.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦       +---src
+¦   ¦       ¦           +---pip
+¦   ¦       ¦               +---_vendor
+¦   ¦       ¦                   +---cachecontrol
+¦   ¦       ¦                   +---certifi
+¦   ¦       ¦                   +---distlib
+¦   ¦       ¦                   +---distro
+¦   ¦       ¦                   +---idna
+¦   ¦       ¦                   +---msgpack
+¦   ¦       ¦                   +---packaging
+¦   ¦       ¦                   +---pkg_resources
+¦   ¦       ¦                   +---platformdirs
+¦   ¦       ¦                   +---pygments
+¦   ¦       ¦                   +---pyproject_hooks
+¦   ¦       ¦                   +---requests
+¦   ¦       ¦                   +---resolvelib
+¦   ¦       ¦                   +---rich
+¦   ¦       ¦                   +---tomli
+¦   ¦       ¦                   +---tomli_w
+¦   ¦       ¦                   +---truststore
+¦   ¦       ¦                   +---urllib3
+¦   ¦       +---pkg_resources
+¦   ¦       ¦   +---extern
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_vendor
+¦   ¦       ¦   ¦   +---importlib_resources
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---jaraco
+¦   ¦       ¦   ¦   ¦   +---text
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---more_itertools
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---packaging
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pyparsing
+¦   ¦       ¦   ¦   ¦   +---diagram
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---playwright
+¦   ¦       ¦   +---async_api
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---driver
+¦   ¦       ¦   ¦   +---package
+¦   ¦       ¦   ¦       +---bin
+¦   ¦       ¦   ¦       +---lib
+¦   ¦       ¦   ¦       ¦   +---entry
+¦   ¦       ¦   ¦       ¦   +---server
+¦   ¦       ¦   ¦       ¦   ¦   +---chromium
+¦   ¦       ¦   ¦       ¦   ¦   +---electron
+¦   ¦       ¦   ¦       ¦   +---tools
+¦   ¦       ¦   ¦       ¦   ¦   +---cli-client
+¦   ¦       ¦   ¦       ¦   ¦   +---dashboard
+¦   ¦       ¦   ¦       ¦   ¦   +---skills
+¦   ¦       ¦   ¦       ¦   ¦   ¦   +---playwright-cli
+¦   ¦       ¦   ¦       ¦   ¦   ¦   ¦   +---references
+¦   ¦       ¦   ¦       ¦   ¦   ¦   +---playwright-component-testing
+¦   ¦       ¦   ¦       ¦   ¦   ¦   ¦   +---references
+¦   ¦       ¦   ¦       ¦   ¦   ¦   +---playwright-trace
+¦   ¦       ¦   ¦       ¦   ¦   +---utils
+¦   ¦       ¦   ¦       ¦   +---vite
+¦   ¦       ¦   ¦       ¦       +---dashboard
+¦   ¦       ¦   ¦       ¦       ¦   +---assets
+¦   ¦       ¦   ¦       ¦       +---htmlReport
+¦   ¦       ¦   ¦       ¦       +---recorder
+¦   ¦       ¦   ¦       ¦       ¦   +---assets
+¦   ¦       ¦   ¦       ¦       +---traceViewer
+¦   ¦       ¦   ¦       ¦           +---assets
+¦   ¦       ¦   ¦       +---types
+¦   ¦       ¦   +---sync_api
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_impl
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pyinstaller
+¦   ¦       ¦   ¦       +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---playwright-1.62.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pyasn1
+¦   ¦       ¦   +---codec
+¦   ¦       ¦   ¦   +---ber
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---cer
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---der
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---native
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---compat
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---type
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pyasn1-0.6.4.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pyasn1_modules
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pyasn1_modules-0.4.2.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pycparser
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pycparser-3.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pydantic
+¦   ¦       ¦   +---deprecated
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---experimental
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---plugin
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---v1
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_internal
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pydantic-2.13.5.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pydantic_core
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pydantic_core-2.46.5.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦   +---sboms
+¦   ¦       +---pydantic_settings
+¦   ¦       ¦   +---sources
+¦   ¦       ¦   ¦   +---providers
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pydantic_settings-2.15.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pyee
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---pyee-13.0.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---python_dotenv-1.2.3.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---pyyaml-6.0.3.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---redis
+¦   ¦       ¦   +---asyncio
+¦   ¦       ¦   ¦   +---http
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---multidb
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---observability
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---auth
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---commands
+¦   ¦       ¦   ¦   +---bf
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---json
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---search
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---timeseries
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---vectorset
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---http
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---multidb
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---observability
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_parsers
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---redis-8.1.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---requests
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---requests-2.34.2.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---setuptools
+¦   ¦       ¦   +---command
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---config
+¦   ¦       ¦   ¦   +---_validate_pyproject
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---extern
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_distutils
+¦   ¦       ¦   ¦   +---command
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---_vendor
+¦   ¦       ¦   ¦   +---importlib_metadata
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---importlib_resources
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---jaraco
+¦   ¦       ¦   ¦   ¦   +---text
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---more_itertools
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---packaging
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---pyparsing
+¦   ¦       ¦   ¦   ¦   +---diagram
+¦   ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---tomli
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---setuptools-65.5.0.dist-info
+¦   ¦       +---sniffio
+¦   ¦       ¦   +---_tests
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---sniffio-1.3.1.dist-info
+¦   ¦       +---starlette
+¦   ¦       ¦   +---middleware
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---starlette-1.6.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---tenacity
+¦   ¦       ¦   +---asyncio
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---tenacity-9.1.4.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---truststore
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---truststore-0.10.4.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---typing_extensions-4.16.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---typing_inspection
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---typing_inspection-0.4.4.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---urllib3
+¦   ¦       ¦   +---contrib
+¦   ¦       ¦   ¦   +---emscripten
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---http2
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---util
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---urllib3-2.7.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---uvicorn
+¦   ¦       ¦   +---lifespan
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---loops
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---middleware
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---protocols
+¦   ¦       ¦   ¦   +---http
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---websockets
+¦   ¦       ¦   ¦   ¦   +---__pycache__
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---supervisors
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---uvicorn-0.52.4.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---watchfiles
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---watchfiles-1.2.0.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       ¦   +---sboms
+¦   ¦       +---websockets
+¦   ¦       ¦   +---asyncio
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---extensions
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---legacy
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---sync
+¦   ¦       ¦   ¦   +---__pycache__
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---websockets-16.1.1.dist-info
+¦   ¦       ¦   +---licenses
+¦   ¦       +---yaml
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---_distutils_hack
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---_yaml
+¦   ¦       ¦   +---__pycache__
+¦   ¦       +---__pycache__
+¦   +---Scripts
++---backend
+¦   +---app
+¦   ¦   +---api
+¦   ¦   ¦   +---__pycache__
+¦   ¦   +---core
+¦   ¦   ¦   +---__pycache__
+¦   ¦   +---schemas
+¦   ¦   ¦   +---__pycache__
+¦   ¦   +---services
+¦   ¦   ¦   +---__pycache__
+¦   ¦   +---__pycache__
+¦   +---venv
+¦       +---Include
+¦       ¦   +---site
+¦       ¦       +---python3.11
+¦       ¦           +---greenlet
+¦       +---Lib
+¦       ¦   +---site-packages
+¦       ¦       +---annotated_doc
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---annotated_doc-0.0.5.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---annotated_types
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---annotated_types-0.8.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---anthropic
+¦       ¦       ¦   +---lib
+¦       ¦       ¦   ¦   +---aws
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---bedrock
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---credentials
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---environments
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---google_cloud
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---middleware
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---sessions
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---streaming
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tools
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---vertex
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---_extras
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---_parse
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---resources
+¦       ¦       ¦   ¦   +---beta
+¦       ¦       ¦   ¦   ¦   +---agents
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---environments
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---memory_stores
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---messages
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---organization
+¦       ¦       ¦   ¦   ¦   ¦   +---federation
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---rules
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---service_accounts
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---workspaces
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---sessions
+¦       ¦       ¦   ¦   ¦   ¦   +---threads
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---skills
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---tunnels
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---vaults
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---messages
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---skills
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---tools
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---types
+¦       ¦       ¦   ¦   +---beta
+¦       ¦       ¦   ¦   ¦   +---agents
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---environments
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---memory_stores
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---messages
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---organization
+¦       ¦       ¦   ¦   ¦   ¦   +---federation
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---rules
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---service_accounts
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---workspaces
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---sessions
+¦       ¦       ¦   ¦   ¦   ¦   +---threads
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---skills
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---tunnels
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---vaults
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---messages
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---shared
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---skills
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_decoders
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_utils
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_vendor
+¦       ¦       ¦   ¦   +---httpx_aiohttp
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---anthropic-1.4.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---anyio
+¦       ¦       ¦   +---abc
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---streams
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_backends
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_core
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---anyio-4.15.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---certifi
+¦       ¦       ¦   +---tests
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---certifi-2026.7.22.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---cffi
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---cffi-2.1.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---charset_normalizer
+¦       ¦       ¦   +---cli
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---charset_normalizer-3.5.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---click
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---click-8.5.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---cryptography
+¦       ¦       ¦   +---hazmat
+¦       ¦       ¦   ¦   +---asn1
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---backends
+¦       ¦       ¦   ¦   ¦   +---openssl
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---bindings
+¦       ¦       ¦   ¦   ¦   +---openssl
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---_rust
+¦       ¦       ¦   ¦   ¦   ¦   +---openssl
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---decrepit
+¦       ¦       ¦   ¦   ¦   +---ciphers
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---primitives
+¦       ¦       ¦   ¦   ¦   +---asymmetric
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---ciphers
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---kdf
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---serialization
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---twofactor
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---x509
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---cryptography-50.0.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦   +---sboms
+¦       ¦       +---distro
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---distro-1.9.0.dist-info
+¦       ¦       +---docstring_parser
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---docstring_parser-0.18.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---dotenv
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---fastapi
+¦       ¦       ¦   +---.agents
+¦       ¦       ¦   ¦   +---skills
+¦       ¦       ¦   ¦       +---fastapi
+¦       ¦       ¦   ¦           +---references
+¦       ¦       ¦   +---dependencies
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---middleware
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---openapi
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---security
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_compat
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---fastapi-0.141.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---google
+¦       ¦       ¦   +---auth
+¦       ¦       ¦   ¦   +---aio
+¦       ¦       ¦   ¦   ¦   +---transport
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---compute_engine
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---crypt
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---transport
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---genai
+¦       ¦       ¦   ¦   +---tests
+¦       ¦       ¦   ¦   ¦   +---afc
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---batches
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---caches
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---chats
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---client
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---common
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---documents
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---errors
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---files
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---file_search_stores
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---gaos
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---imports
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---interactions
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---live
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---live_api
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---local_tokenizer
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---mcp
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---models
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---operations
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---public_samples
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---shared
+¦       ¦       ¦   ¦   ¦   ¦   +---batches
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---caches
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---chats
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---files
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---models
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---tunings
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---tokens
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---transformers
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---tunings
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---types
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---_gaos
+¦       ¦       ¦   ¦   ¦   +---errors
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---lib
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---models
+¦       ¦       ¦   ¦   ¦   ¦   +---internal
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---resources
+¦       ¦       ¦   ¦   ¦   ¦   +---agents
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---environments
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---createenvironmentrequest
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---environment
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---interactions
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---codeexecutioncallstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---codemenderagentconfig
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---findrequest
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---fixrequest
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---environment
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---errorevent
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---googlemapscallstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---googlemapsresult
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---place
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---googlemapsresultstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---result
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---place
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---googlesearchcallstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---googlesearchresultstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---placecitation
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---retrievalcalldelta
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---stepdelta
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---tool
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---retrieval
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---transcriptionmode
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---urlcontextcallstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---urlcontextresultstep
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---usage
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---videocontent
+¦       ¦       ¦   ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---triggers
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---webhooks
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---types
+¦       ¦       ¦   ¦   ¦   ¦   +---agents
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---environments
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---interactions
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---triggers
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---webhooks
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---utils
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---_hooks
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---oauth2
+¦       ¦       ¦       +---__pycache__
+¦       ¦       +---google_auth-2.57.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---google_genai-2.22.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---greenlet
+¦       ¦       ¦   +---platform
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---tests
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---greenlet-3.5.5.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---h11
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---h11-0.16.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---httpcore
+¦       ¦       ¦   +---_async
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_backends
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_sync
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---httpcore-1.0.9.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---httpcore2
+¦       ¦       ¦   +---_async
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_backends
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_sync
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---httpcore2-2.12.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---httptools
+¦       ¦       ¦   +---parser
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---httptools-0.8.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦       +---vendor
+¦       ¦       ¦           +---http-parser
+¦       ¦       ¦           +---llhttp
+¦       ¦       +---httpx
+¦       ¦       ¦   +---_transports
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---httpx-0.28.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---httpx2
+¦       ¦       ¦   +---websockets
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_transports
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---httpx2-2.12.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---idna
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---idna-3.19.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---jiter
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---jiter-0.16.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦   +---sboms
+¦       ¦       +---PIL
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pillow-12.3.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦   +---sboms
+¦       ¦       +---pip
+¦       ¦       ¦   +---_internal
+¦       ¦       ¦   ¦   +---cli
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---commands
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---distributions
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---index
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---locations
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---metadata
+¦       ¦       ¦   ¦   ¦   +---importlib
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---models
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---network
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---operations
+¦       ¦       ¦   ¦   ¦   +---build
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---install
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---req
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---resolution
+¦       ¦       ¦   ¦   ¦   +---legacy
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---resolvelib
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---utils
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---vcs
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_vendor
+¦       ¦       ¦   ¦   +---cachecontrol
+¦       ¦       ¦   ¦   ¦   +---caches
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---certifi
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---chardet
+¦       ¦       ¦   ¦   ¦   +---cli
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---metadata
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---colorama
+¦       ¦       ¦   ¦   ¦   +---tests
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---distlib
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---distro
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---idna
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---msgpack
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---packaging
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pkg_resources
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---platformdirs
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pygments
+¦       ¦       ¦   ¦   ¦   +---filters
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---formatters
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---lexers
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---styles
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pyparsing
+¦       ¦       ¦   ¦   ¦   +---diagram
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pyproject_hooks
+¦       ¦       ¦   ¦   ¦   +---_in_process
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---requests
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---resolvelib
+¦       ¦       ¦   ¦   ¦   +---compat
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---rich
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tenacity
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tomli
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---truststore
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---urllib3
+¦       ¦       ¦   ¦   ¦   +---contrib
+¦       ¦       ¦   ¦   ¦   ¦   +---_securetransport
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---packages
+¦       ¦       ¦   ¦   ¦   ¦   +---backports
+¦       ¦       ¦   ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---util
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---webencodings
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pip-24.0.dist-info
+¦       ¦       +---pkg_resources
+¦       ¦       ¦   +---extern
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_vendor
+¦       ¦       ¦   ¦   +---importlib_resources
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---jaraco
+¦       ¦       ¦   ¦   ¦   +---text
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---more_itertools
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---packaging
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pyparsing
+¦       ¦       ¦   ¦   ¦   +---diagram
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---playwright
+¦       ¦       ¦   +---async_api
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---driver
+¦       ¦       ¦   ¦   +---package
+¦       ¦       ¦   ¦       +---bin
+¦       ¦       ¦   ¦       +---lib
+¦       ¦       ¦   ¦       ¦   +---entry
+¦       ¦       ¦   ¦       ¦   +---server
+¦       ¦       ¦   ¦       ¦   ¦   +---chromium
+¦       ¦       ¦   ¦       ¦   ¦   +---electron
+¦       ¦       ¦   ¦       ¦   +---tools
+¦       ¦       ¦   ¦       ¦   ¦   +---cli-client
+¦       ¦       ¦   ¦       ¦   ¦   +---dashboard
+¦       ¦       ¦   ¦       ¦   ¦   +---skills
+¦       ¦       ¦   ¦       ¦   ¦   ¦   +---playwright-cli
+¦       ¦       ¦   ¦       ¦   ¦   ¦   ¦   +---references
+¦       ¦       ¦   ¦       ¦   ¦   ¦   +---playwright-component-testing
+¦       ¦       ¦   ¦       ¦   ¦   ¦   ¦   +---references
+¦       ¦       ¦   ¦       ¦   ¦   ¦   +---playwright-trace
+¦       ¦       ¦   ¦       ¦   ¦   +---utils
+¦       ¦       ¦   ¦       ¦   +---vite
+¦       ¦       ¦   ¦       ¦       +---dashboard
+¦       ¦       ¦   ¦       ¦       ¦   +---assets
+¦       ¦       ¦   ¦       ¦       +---htmlReport
+¦       ¦       ¦   ¦       ¦       +---recorder
+¦       ¦       ¦   ¦       ¦       ¦   +---assets
+¦       ¦       ¦   ¦       ¦       +---traceViewer
+¦       ¦       ¦   ¦       ¦           +---assets
+¦       ¦       ¦   ¦       +---types
+¦       ¦       ¦   +---sync_api
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_impl
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pyinstaller
+¦       ¦       ¦   ¦       +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---playwright-1.62.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pyasn1
+¦       ¦       ¦   +---codec
+¦       ¦       ¦   ¦   +---ber
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---cer
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---der
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---native
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---compat
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---type
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pyasn1-0.6.4.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pyasn1_modules
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pyasn1_modules-0.4.2.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pycparser
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pycparser-3.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pydantic
+¦       ¦       ¦   +---deprecated
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---experimental
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---plugin
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---v1
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_internal
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pydantic-2.13.5.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pydantic_core
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pydantic_core-2.46.5.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦   +---sboms
+¦       ¦       +---pydantic_settings
+¦       ¦       ¦   +---sources
+¦       ¦       ¦   ¦   +---providers
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pydantic_settings-2.15.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pyee
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---pyee-13.0.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---python_dotenv-1.2.3.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---pyyaml-6.0.3.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---redis
+¦       ¦       ¦   +---asyncio
+¦       ¦       ¦   ¦   +---http
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---multidb
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---observability
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---auth
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---commands
+¦       ¦       ¦   ¦   +---bf
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---json
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---search
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---timeseries
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---vectorset
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---http
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---multidb
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---observability
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_parsers
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---redis-8.1.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---requests
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---requests-2.34.2.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---setuptools
+¦       ¦       ¦   +---command
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---config
+¦       ¦       ¦   ¦   +---_validate_pyproject
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---extern
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_distutils
+¦       ¦       ¦   ¦   +---command
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---_vendor
+¦       ¦       ¦   ¦   +---importlib_metadata
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---importlib_resources
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---jaraco
+¦       ¦       ¦   ¦   ¦   +---text
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---more_itertools
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---packaging
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---pyparsing
+¦       ¦       ¦   ¦   ¦   +---diagram
+¦       ¦       ¦   ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---tomli
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---setuptools-65.5.0.dist-info
+¦       ¦       +---sniffio
+¦       ¦       ¦   +---_tests
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---sniffio-1.3.1.dist-info
+¦       ¦       +---starlette
+¦       ¦       ¦   +---middleware
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---starlette-1.6.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---tenacity
+¦       ¦       ¦   +---asyncio
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---tenacity-9.1.4.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---truststore
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---truststore-0.10.4.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---typing_extensions-4.16.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---typing_inspection
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---typing_inspection-0.4.4.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---urllib3
+¦       ¦       ¦   +---contrib
+¦       ¦       ¦   ¦   +---emscripten
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---http2
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---util
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---urllib3-2.7.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---uvicorn
+¦       ¦       ¦   +---lifespan
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---loops
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---middleware
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---protocols
+¦       ¦       ¦   ¦   +---http
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---websockets
+¦       ¦       ¦   ¦   ¦   +---__pycache__
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---supervisors
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---uvicorn-0.52.4.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---watchfiles
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---watchfiles-1.2.0.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       ¦   +---sboms
+¦       ¦       +---websockets
+¦       ¦       ¦   +---asyncio
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---extensions
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---legacy
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---sync
+¦       ¦       ¦   ¦   +---__pycache__
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---websockets-16.1.1.dist-info
+¦       ¦       ¦   +---licenses
+¦       ¦       +---yaml
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---_distutils_hack
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---_yaml
+¦       ¦       ¦   +---__pycache__
+¦       ¦       +---__pycache__
+¦       +---Scripts
++---frontend
+    +---node_modules
+    ¦   +---.bin
+    ¦   +---.vite
+    ¦   ¦   +---deps
+    ¦   +---@alloc
+    ¦   ¦   +---quick-lru
+    ¦   +---@babel
+    ¦   ¦   +---code-frame
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---compat-data
+    ¦   ¦   ¦   +---data
+    ¦   ¦   +---core
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦   ¦   +---config
+    ¦   ¦   ¦   ¦   ¦   +---files
+    ¦   ¦   ¦   ¦   ¦   +---helpers
+    ¦   ¦   ¦   ¦   ¦   +---validation
+    ¦   ¦   ¦   ¦   +---errors
+    ¦   ¦   ¦   ¦   +---gensync-utils
+    ¦   ¦   ¦   ¦   +---parser
+    ¦   ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   ¦   +---tools
+    ¦   ¦   ¦   ¦   +---transformation
+    ¦   ¦   ¦   ¦   ¦   +---file
+    ¦   ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   ¦   +---vendor
+    ¦   ¦   ¦   +---src
+    ¦   ¦   ¦       +---config
+    ¦   ¦   ¦       ¦   +---files
+    ¦   ¦   ¦       +---transformation
+    ¦   ¦   +---generator
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦       +---generators
+    ¦   ¦   ¦       +---node
+    ¦   ¦   +---helper-compilation-targets
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helper-globals
+    ¦   ¦   ¦   +---data
+    ¦   ¦   +---helper-module-imports
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helper-module-transforms
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helper-plugin-utils
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helper-string-parser
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helper-validator-identifier
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helper-validator-option
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---helpers
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦       +---helpers
+    ¦   ¦   +---parser
+    ¦   ¦   ¦   +---bin
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦   +---typings
+    ¦   ¦   +---plugin-transform-react-jsx-self
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---plugin-transform-react-jsx-source
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---template
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   +---traverse
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦       +---path
+    ¦   ¦   ¦       ¦   +---inference
+    ¦   ¦   ¦       ¦   +---lib
+    ¦   ¦   ¦       +---scope
+    ¦   ¦   ¦           +---lib
+    ¦   ¦   +---types
+    ¦   ¦       +---lib
+    ¦   ¦           +---asserts
+    ¦   ¦           ¦   +---generated
+    ¦   ¦           +---ast-types
+    ¦   ¦           ¦   +---generated
+    ¦   ¦           +---builders
+    ¦   ¦           ¦   +---flow
+    ¦   ¦           ¦   +---generated
+    ¦   ¦           ¦   +---react
+    ¦   ¦           ¦   +---typescript
+    ¦   ¦           +---clone
+    ¦   ¦           +---comments
+    ¦   ¦           +---constants
+    ¦   ¦           ¦   +---generated
+    ¦   ¦           +---converters
+    ¦   ¦           +---definitions
+    ¦   ¦           +---modifications
+    ¦   ¦           ¦   +---flow
+    ¦   ¦           ¦   +---typescript
+    ¦   ¦           +---retrievers
+    ¦   ¦           +---traverse
+    ¦   ¦           +---utils
+    ¦   ¦           ¦   +---react
+    ¦   ¦           +---validators
+    ¦   ¦               +---generated
+    ¦   ¦               +---react
+    ¦   +---@esbuild
+    ¦   ¦   +---win32-x64
+    ¦   +---@jridgewell
+    ¦   ¦   +---gen-mapping
+    ¦   ¦   ¦   +---dist
+    ¦   ¦   ¦   ¦   +---types
+    ¦   ¦   ¦   +---src
+    ¦   ¦   ¦   +---types
+    ¦   ¦   +---remapping
+    ¦   ¦   ¦   +---dist
+    ¦   ¦   ¦   +---src
+    ¦   ¦   ¦   +---types
+    ¦   ¦   +---resolve-uri
+    ¦   ¦   ¦   +---dist
+    ¦   ¦   ¦       +---types
+    ¦   ¦   +---sourcemap-codec
+    ¦   ¦   ¦   +---dist
+    ¦   ¦   ¦   +---src
+    ¦   ¦   ¦   +---types
+    ¦   ¦   +---trace-mapping
+    ¦   ¦       +---dist
+    ¦   ¦       +---src
+    ¦   ¦       +---types
+    ¦   +---@nodelib
+    ¦   ¦   +---fs.scandir
+    ¦   ¦   ¦   +---out
+    ¦   ¦   ¦       +---adapters
+    ¦   ¦   ¦       +---providers
+    ¦   ¦   ¦       +---types
+    ¦   ¦   ¦       +---utils
+    ¦   ¦   +---fs.stat
+    ¦   ¦   ¦   +---out
+    ¦   ¦   ¦       +---adapters
+    ¦   ¦   ¦       +---providers
+    ¦   ¦   ¦       +---types
+    ¦   ¦   +---fs.walk
+    ¦   ¦       +---out
+    ¦   ¦           +---providers
+    ¦   ¦           +---readers
+    ¦   ¦           +---types
+    ¦   +---@rolldown
+    ¦   ¦   +---pluginutils
+    ¦   ¦       +---dist
+    ¦   +---@rollup
+    ¦   ¦   +---rollup-win32-x64-gnu
+    ¦   ¦   +---rollup-win32-x64-msvc
+    ¦   +---@types
+    ¦   ¦   +---babel__core
+    ¦   ¦   +---babel__generator
+    ¦   ¦   +---babel__template
+    ¦   ¦   +---babel__traverse
+    ¦   ¦   +---estree
+    ¦   +---@vitejs
+    ¦   ¦   +---plugin-react
+    ¦   ¦       +---dist
+    ¦   +---any-promise
+    ¦   ¦   +---register
+    ¦   +---anymatch
+    ¦   +---arg
+    ¦   +---autoprefixer
+    ¦   ¦   +---bin
+    ¦   ¦   +---data
+    ¦   ¦   +---lib
+    ¦   ¦       +---hacks
+    ¦   +---baseline-browser-mapping
+    ¦   ¦   +---dist
+    ¦   +---binary-extensions
+    ¦   +---braces
+    ¦   ¦   +---lib
+    ¦   +---browserslist
+    ¦   +---camelcase-css
+    ¦   +---caniuse-lite
+    ¦   ¦   +---data
+    ¦   ¦   ¦   +---features
+    ¦   ¦   ¦   +---regions
+    ¦   ¦   +---dist
+    ¦   ¦       +---lib
+    ¦   ¦       +---unpacker
+    ¦   +---chokidar
+    ¦   ¦   +---lib
+    ¦   ¦   +---node_modules
+    ¦   ¦   ¦   +---glob-parent
+    ¦   ¦   +---types
+    ¦   +---commander
+    ¦   ¦   +---typings
+    ¦   +---convert-source-map
+    ¦   +---cssesc
+    ¦   ¦   +---bin
+    ¦   ¦   +---man
+    ¦   +---debug
+    ¦   ¦   +---src
+    ¦   +---didyoumean
+    ¦   +---dlv
+    ¦   ¦   +---dist
+    ¦   +---electron-to-chromium
+    ¦   +---es-errors
+    ¦   ¦   +---.github
+    ¦   ¦   +---test
+    ¦   +---esbuild
+    ¦   ¦   +---bin
+    ¦   ¦   +---lib
+    ¦   +---escalade
+    ¦   ¦   +---dist
+    ¦   ¦   +---sync
+    ¦   +---fast-glob
+    ¦   ¦   +---node_modules
+    ¦   ¦   ¦   +---glob-parent
+    ¦   ¦   +---out
+    ¦   ¦       +---managers
+    ¦   ¦       +---providers
+    ¦   ¦       ¦   +---filters
+    ¦   ¦       ¦   +---matchers
+    ¦   ¦       ¦   +---transformers
+    ¦   ¦       +---readers
+    ¦   ¦       +---types
+    ¦   ¦       +---utils
+    ¦   +---fastq
+    ¦   ¦   +---test
+    ¦   +---fill-range
+    ¦   +---fraction.js
+    ¦   ¦   +---dist
+    ¦   ¦   +---examples
+    ¦   ¦   +---src
+    ¦   ¦   +---tests
+    ¦   +---function-bind
+    ¦   ¦   +---.github
+    ¦   ¦   +---test
+    ¦   +---gensync
+    ¦   ¦   +---test
+    ¦   +---glob-parent
+    ¦   +---hasown
+    ¦   ¦   +---.github
+    ¦   +---is-binary-path
+    ¦   +---is-core-module
+    ¦   ¦   +---test
+    ¦   +---is-extglob
+    ¦   +---is-glob
+    ¦   +---is-number
+    ¦   +---jiti
+    ¦   ¦   +---bin
+    ¦   ¦   +---dist
+    ¦   ¦   ¦   +---plugins
+    ¦   ¦   +---lib
+    ¦   +---js-tokens
+    ¦   +---jsesc
+    ¦   ¦   +---bin
+    ¦   ¦   +---man
+    ¦   +---json5
+    ¦   ¦   +---dist
+    ¦   ¦   +---lib
+    ¦   +---lilconfig
+    ¦   ¦   +---src
+    ¦   +---lines-and-columns
+    ¦   ¦   +---build
+    ¦   +---loose-envify
+    ¦   +---lru-cache
+    ¦   +---lucide-react
+    ¦   ¦   +---dist
+    ¦   ¦       +---cjs
+    ¦   ¦       +---esm
+    ¦   ¦       ¦   +---icons
+    ¦   ¦       ¦   +---shared
+    ¦   ¦       ¦       +---src
+    ¦   ¦       +---umd
+    ¦   +---merge2
+    ¦   +---micromatch
+    ¦   +---ms
+    ¦   +---mz
+    ¦   +---nanoid
+    ¦   ¦   +---async
+    ¦   ¦   +---bin
+    ¦   ¦   +---non-secure
+    ¦   ¦   +---url-alphabet
+    ¦   +---node-releases
+    ¦   ¦   +---data
+    ¦   ¦       +---processed
+    ¦   ¦       +---release-schedule
+    ¦   +---normalize-path
+    ¦   +---object-assign
+    ¦   +---object-hash
+    ¦   ¦   +---dist
+    ¦   +---path-parse
+    ¦   +---picocolors
+    ¦   +---picomatch
+    ¦   ¦   +---lib
+    ¦   +---pirates
+    ¦   ¦   +---lib
+    ¦   +---postcss
+    ¦   ¦   +---lib
+    ¦   +---postcss-import
+    ¦   ¦   +---lib
+    ¦   +---postcss-js
+    ¦   +---postcss-load-config
+    ¦   ¦   +---src
+    ¦   +---postcss-nested
+    ¦   +---postcss-selector-parser
+    ¦   ¦   +---dist
+    ¦   ¦       +---selectors
+    ¦   ¦       +---util
+    ¦   +---postcss-value-parser
+    ¦   ¦   +---lib
+    ¦   +---queue-microtask
+    ¦   +---react
+    ¦   ¦   +---cjs
+    ¦   ¦   +---umd
+    ¦   +---react-dom
+    ¦   ¦   +---cjs
+    ¦   ¦   +---umd
+    ¦   +---react-refresh
+    ¦   ¦   +---cjs
+    ¦   +---read-cache
+    ¦   +---readdirp
+    ¦   +---resolve
+    ¦   ¦   +---.claude
+    ¦   ¦   +---.github
+    ¦   ¦   +---bin
+    ¦   ¦   +---example
+    ¦   ¦   +---lib
+    ¦   ¦   +---test
+    ¦   ¦       +---dotdot
+    ¦   ¦       ¦   +---abc
+    ¦   ¦       +---module_dir
+    ¦   ¦       ¦   +---xmodules
+    ¦   ¦       ¦   ¦   +---aaa
+    ¦   ¦       ¦   +---ymodules
+    ¦   ¦       ¦   ¦   +---aaa
+    ¦   ¦       ¦   +---zmodules
+    ¦   ¦       ¦       +---bbb
+    ¦   ¦       +---node_path
+    ¦   ¦       ¦   +---x
+    ¦   ¦       ¦   ¦   +---aaa
+    ¦   ¦       ¦   ¦   +---ccc
+    ¦   ¦       ¦   +---y
+    ¦   ¦       ¦       +---bbb
+    ¦   ¦       ¦       +---ccc
+    ¦   ¦       +---pathfilter
+    ¦   ¦       ¦   +---deep_ref
+    ¦   ¦       +---precedence
+    ¦   ¦       ¦   +---aaa
+    ¦   ¦       ¦   +---bbb
+    ¦   ¦       +---resolver
+    ¦   ¦       ¦   +---baz
+    ¦   ¦       ¦   +---browser_field
+    ¦   ¦       ¦   +---dot_main
+    ¦   ¦       ¦   +---dot_slash_main
+    ¦   ¦       ¦   +---false_main
+    ¦   ¦       ¦   +---incorrect_main
+    ¦   ¦       ¦   +---invalid_main
+    ¦   ¦       ¦   +---multirepo
+    ¦   ¦       ¦   ¦   +---packages
+    ¦   ¦       ¦   ¦       +---package-a
+    ¦   ¦       ¦   ¦       +---package-b
+    ¦   ¦       ¦   +---nested_symlinks
+    ¦   ¦       ¦   ¦   +---mylib
+    ¦   ¦       ¦   +---other_path
+    ¦   ¦       ¦   ¦   +---lib
+    ¦   ¦       ¦   +---quux
+    ¦   ¦       ¦   ¦   +---foo
+    ¦   ¦       ¦   +---same_names
+    ¦   ¦       ¦   ¦   +---foo
+    ¦   ¦       ¦   +---symlinked
+    ¦   ¦       ¦   ¦   +---package
+    ¦   ¦       ¦   ¦   +---_
+    ¦   ¦       ¦   ¦       +---node_modules
+    ¦   ¦       ¦   ¦       +---symlink_target
+    ¦   ¦       ¦   +---without_basedir
+    ¦   ¦       +---shadowed_core
+    ¦   ¦           +---node_modules
+    ¦   ¦               +---util
+    ¦   +---reusify
+    ¦   ¦   +---.github
+    ¦   ¦   ¦   +---workflows
+    ¦   ¦   +---benchmarks
+    ¦   +---rollup
+    ¦   ¦   +---dist
+    ¦   ¦       +---bin
+    ¦   ¦       +---es
+    ¦   ¦       ¦   +---shared
+    ¦   ¦       +---shared
+    ¦   +---run-parallel
+    ¦   +---scheduler
+    ¦   ¦   +---cjs
+    ¦   ¦   +---umd
+    ¦   +---semver
+    ¦   ¦   +---bin
+    ¦   +---source-map-js
+    ¦   ¦   +---lib
+    ¦   +---sucrase
+    ¦   ¦   +---bin
+    ¦   ¦   +---dist
+    ¦   ¦   ¦   +---esm
+    ¦   ¦   ¦   ¦   +---parser
+    ¦   ¦   ¦   ¦   ¦   +---plugins
+    ¦   ¦   ¦   ¦   ¦   ¦   +---jsx
+    ¦   ¦   ¦   ¦   ¦   +---tokenizer
+    ¦   ¦   ¦   ¦   ¦   +---traverser
+    ¦   ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   ¦   +---transformers
+    ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   +---parser
+    ¦   ¦   ¦   ¦   +---plugins
+    ¦   ¦   ¦   ¦   ¦   +---jsx
+    ¦   ¦   ¦   ¦   +---tokenizer
+    ¦   ¦   ¦   ¦   +---traverser
+    ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   +---transformers
+    ¦   ¦   ¦   +---types
+    ¦   ¦   ¦   ¦   +---parser
+    ¦   ¦   ¦   ¦   ¦   +---plugins
+    ¦   ¦   ¦   ¦   ¦   ¦   +---jsx
+    ¦   ¦   ¦   ¦   ¦   +---tokenizer
+    ¦   ¦   ¦   ¦   ¦   +---traverser
+    ¦   ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   ¦   +---transformers
+    ¦   ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   +---util
+    ¦   ¦   +---register
+    ¦   ¦   +---ts-node-plugin
+    ¦   +---supports-preserve-symlinks-flag
+    ¦   ¦   +---.github
+    ¦   ¦   +---test
+    ¦   +---tailwindcss
+    ¦   ¦   +---lib
+    ¦   ¦   ¦   +---cli
+    ¦   ¦   ¦   ¦   +---build
+    ¦   ¦   ¦   ¦   +---help
+    ¦   ¦   ¦   ¦   +---init
+    ¦   ¦   ¦   +---css
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦   +---postcss-plugins
+    ¦   ¦   ¦   ¦   +---nesting
+    ¦   ¦   ¦   +---public
+    ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   +---value-parser
+    ¦   ¦   +---nesting
+    ¦   ¦   +---peers
+    ¦   ¦   +---scripts
+    ¦   ¦   +---src
+    ¦   ¦   ¦   +---cli
+    ¦   ¦   ¦   ¦   +---build
+    ¦   ¦   ¦   ¦   +---help
+    ¦   ¦   ¦   ¦   +---init
+    ¦   ¦   ¦   +---css
+    ¦   ¦   ¦   +---lib
+    ¦   ¦   ¦   +---postcss-plugins
+    ¦   ¦   ¦   ¦   +---nesting
+    ¦   ¦   ¦   +---public
+    ¦   ¦   ¦   +---util
+    ¦   ¦   ¦   +---value-parser
+    ¦   ¦   +---stubs
+    ¦   ¦   +---types
+    ¦   ¦       +---generated
+    ¦   +---thenify
+    ¦   +---thenify-all
+    ¦   +---tinyglobby
+    ¦   ¦   +---dist
+    ¦   ¦   +---node_modules
+    ¦   ¦       +---fdir
+    ¦   ¦       ¦   +---dist
+    ¦   ¦       +---picomatch
+    ¦   ¦           +---lib
+    ¦   +---to-regex-range
+    ¦   +---ts-interface-checker
+    ¦   ¦   +---dist
+    ¦   +---update-browserslist-db
+    ¦   +---util-deprecate
+    ¦   +---vite
+    ¦   ¦   +---bin
+    ¦   ¦   +---dist
+    ¦   ¦   ¦   +---client
+    ¦   ¦   ¦   +---node
+    ¦   ¦   ¦   ¦   +---chunks
+    ¦   ¦   ¦   +---node-cjs
+    ¦   ¦   +---types
+    ¦   +---yallist
+    +---src
+        +---components
