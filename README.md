@@ -113,6 +113,7 @@ Aplikasi ini menggunakan arsitektur terpisah (*decoupled*), sehingga Backend dan
 
    Buka file `.env` di text editor dan isi kredensial API:
    ```env
+   GEMINI MODEL = masukkan_model_gemini_kamu_di_sini
    GEMINI_API_KEY=masukkan_api_key_gemini_anda_di_sini
    PORT=8000
 
