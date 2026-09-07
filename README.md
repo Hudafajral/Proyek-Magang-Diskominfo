@@ -179,7 +179,7 @@ Aplikasi ini menggunakan arsitektur terpisah (*decoupled*), sehingga Backend dan
     └── 3. Google Gemini Vision membaca screenshot visual & mengekstrak data
     │
     ▼
-[ Dashboard UI ] ──▶ Menampilkan kartu metrik, tren visual, dan executive summary real-time
+[ Dashboard UI ] ──▶ Menampilkan kartu metrik, tren visual, dan executive summary real-time.
 ```
 
 ---
