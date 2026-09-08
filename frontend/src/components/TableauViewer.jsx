@@ -67,7 +67,7 @@ export default function TableauViewer({ title, tableauUrl, embedUrl }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           url: tableauUrl,
-          force_refresh: false, 
+          force_refresh: true, 
           raw_table_data: extractedSheetsData
         })
       });
