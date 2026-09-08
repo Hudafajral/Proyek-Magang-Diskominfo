@@ -1,30 +1,29 @@
 import base64
 import json
 import re
+import asyncio
+import importlib
+import logging
 from abc import ABC, abstractmethod
-from typing import Optional
+from typing import Optional, Any
 from app.core.config import settings
 from app.schemas.insight import DashboardInsight
 
-SYSTEM_PROMPT = """Anda adalah analis data senior untuk instansi pemerintah.
-Tugas Anda adalah membaca visual dashboard instansi secara multimodal dan menyusun narasi insight analitis yang dinamis dalam Bahasa Indonesia.
+logger = logging.getLogger(__name__)
+
+SYSTEM_PROMPT = """Anda adalah analis data senior instansi pemerintah.
+Tugas Anda adalah membaca data dasbor yang sedang aktif/terfilter dan menyusun narasi insight analitis dalam Bahasa Indonesia.
 
 ATURAN ANALISIS:
-1. IDENTIFIKASI TOPIK: Tentukan terlebih dahulu topik utama visual (misal: stunting, postur APBD, capaian imunisasi, kependudukan, pengadaan). Sesuaikan terminologi dan sudut pandang narasi dengan topik tersebut.
-2. POLA & ANOMALI: Temukan tren pergerakan data, kategori dominan, titik data ekstrem (puncak/dasar), atau perbandingan mencolok.
-3. KETELITIAN ANGKA (SANGAT PENTING):
-   - Jika tersedia data mentah teks, gunakan angka presisi tersebut.
-   - Jika HANYA mengandalkan visual screenshot, HINDARI mengklaim angka presisi desimal kecuali label angkanya terbaca sangat jelas pada grafik. Gunakan bahasa aproksimasi ("berkisar di angka ~...", "mendekati...", "mengalami tren kenaikan signifikan pada periode X").
-4. AUDIENS: Susun narasi yang jelas, profesional, dan mudah dicerna oleh pejabat publik serta masyarakat umum. Hindari template kaku.
-
-OUTPUT: Wajib mengeluarkan format JSON valid tunggal tanpa markdown blok pembuka/penutup tambahan yang tidak perlu, dengan skema:
+1. AKURASI ANGKA MUTLAK: Seluruh metrik dan angka yang Anda sebutkan wajib bersumber langsung dari data terlampir. Jangan mengarang angka di luar data.
+2. ANALISIS DATA TERFILTER: Data yang diberikan mencerminkan kondisi lembar kerja yang sedang aktif dilihat pengguna. Analisis korelasi antar kolom, volume dominan, serta pola tren yang terbentuk.
+3. STRUKTUR OUTPUT: Kembalikan dalam format JSON valid tanpa tanda pembuka/penutup markdown tambahan:
 {
-  "topik": "Topik spesifik dashboard",
-  "ringkasan": "1-2 paragraf padat insight utama",
-  "tren_utama": ["poin tren 1", "poin tren 2", "..."],
-  "hal_menonjol": ["poin anomali/angka menarik 1", "poin anomali/angka menarik 2", "..."]
-}
-"""
+  "topik": "Topik spesifik dasbor (sebutkan segmen/tahun aktif jika ada)",
+  "ringkasan": "1-2 paragraf padat ringkasan eksekutif berbasis data aktif",
+  "tren_utama": ["Poin tren 1", "Poin tren 2"],
+  "hal_menonjol": ["Poin angka dominan 1", "Poin angka dominan 2"]
+}"""
 
 def extract_json(raw_text: str) -> dict:
     match = re.search(r'\{.*\}', raw_text, re.DOTALL)
@@ -34,7 +33,7 @@ def extract_json(raw_text: str) -> dict:
 
 class BaseLLMService(ABC):
     @abstractmethod
-    async def analyze(self, image_bytes: bytes, raw_data: Optional[dict]) -> DashboardInsight:
+    async def analyze(self, image_bytes: Optional[bytes], raw_data: Optional[Any]) -> DashboardInsight:
         pass
 
 class GeminiService(BaseLLMService):
@@ -44,74 +43,50 @@ class GeminiService(BaseLLMService):
         self.client = genai.Client(api_key=settings.GEMINI_API_KEY)
         self.types = types
 
-    async def analyze(self, image_bytes: bytes, raw_data: Optional[dict]) -> DashboardInsight:
-        b64_image = base64.b64encode(image_bytes).decode("utf-8")
-        
-        prompt_text = "Analisis visual dashboard berikut."
-        if raw_data:
-            truncated_data = json.dumps(raw_data)[:4000]
-            prompt_text += f"\n\nTerdapat data ekstrak tambahan berikut dari server:\n{truncated_data}"
-        else:
-            prompt_text += "\n\nCatatan: Analisis murni dari screenshot visual tanpa data mentah tambahan."
+    async def analyze(self, image_bytes: Optional[bytes], raw_data: Optional[Any]) -> DashboardInsight:
+        contents = [self.types.Part.from_text(text=SYSTEM_PROMPT)]
 
-        response = self.client.models.generate_content(
-            model=settings.GEMINI_MODEL,
-            contents=[
-                self.types.Part.from_text(text=SYSTEM_PROMPT),
-                self.types.Part.from_bytes(data=image_bytes, mime_type="image/png"),
-                self.types.Part.from_text(text=prompt_text)
-            ],
-            config=self.types.GenerateContentConfig(
-                response_mime_type="application/json"
+        if raw_data:
+            data_str = json.dumps(raw_data, ensure_ascii=False)[:8000]
+            contents.append(
+                self.types.Part.from_text(
+                    text=f"Berikut adalah data terstruktur hasil filter aktif di dasbor:\n{data_str}\n\nBuatlah narasi insight analitis berdasarkan data tersebut."
+                )
             )
-        )
-        data = extract_json(response.text)
-        return DashboardInsight(**data)
+        elif image_bytes:
+            contents.append(self.types.Part.from_bytes(data=image_bytes, mime_type="image/png"))
+            contents.append(self.types.Part.from_text(text="Analisis gambar visual dashboard berikut."))
 
-class ClaudeService(BaseLLMService):
-    def __init__(self):
-        import anthropic
-        self.client = anthropic.AsyncAnthropic(api_key=settings.ANTHROPIC_API_KEY)
+        # Tetapkan ke model resmi gemini-3.6-flash
+        target_model = "gemini-3.6-flash"
+        max_retries = 3
+        delay = 4  # detik
 
-    async def analyze(self, image_bytes: bytes, raw_data: Optional[dict]) -> DashboardInsight:
-        b64_image = base64.b64encode(image_bytes).decode("utf-8")
-        
-        user_message = "Analisis visual dashboard berikut."
-        if raw_data:
-            truncated_data = json.dumps(raw_data)[:4000]
-            user_message += f"\n\nTerdapat data mentah pendukung:\n{truncated_data}"
-        else:
-            user_message += "\n\nAnalisis murni dari visual screenshot."
+        for attempt in range(max_retries):
+            try:
+                def _call():
+                    return self.client.models.generate_content(
+                        model=target_model,
+                        contents=contents,
+                        config=self.types.GenerateContentConfig(
+                            response_mime_type="application/json",
+                            temperature=0.2
+                        )
+                    )
+                response = await asyncio.to_thread(_call)
+                return DashboardInsight(**extract_json(response.text))
+            except Exception as e:
+                err_msg = str(e)
+                # Tangani limit 429: tunggu jeda lalu coba ulang otomatis
+                if "429" in err_msg or "ResourceExhausted" in err_msg or "Too Many Requests" in err_msg:
+                    logger.warning(f"Rate limit 429 (Percobaan {attempt + 1}/{max_retries}). Menunggu {delay} detik...")
+                    await asyncio.sleep(delay)
+                    delay *= 2
+                    continue
+                else:
+                    logger.error(f"Gagal memanggil model {target_model}: {e}")
+                    raise RuntimeError(f"Gagal memproses LLM: {e}")
 
-        response = await self.client.messages.create(
-            model=settings.CLAUDE_MODEL,
-            max_tokens=2048,
-            system=SYSTEM_PROMPT,
-            messages=[
-                {
-                    "role": "user",
-                    "content": [
-                        {
-                            "type": "image",
-                            "source": {
-                                "type": "base64",
-                                "media_type": "image/png",
-                                "data": b64_image,
-                            },
-                        },
-                        {
-                            "type": "text",
-                            "text": user_message
-                        }
-                    ],
-                }
-            ],
-        )
-        content_text = response.content[0].text
-        data = extract_json(content_text)
-        return DashboardInsight(**data)
-
+        raise RuntimeError("Batas kuota API (Rate Limit 429) tercapai. Silakan tunggu 20 detik lalu coba lagi.")
 def get_llm_service() -> BaseLLMService:
-    if settings.LLM_PROVIDER == "claude":
-        return ClaudeService()
     return GeminiService()

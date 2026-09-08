@@ -13,8 +13,8 @@ export default function App() {
         {/* Dashboard Tableau */}
         <TableauViewer
           title="Dashboard Analisis Perikanan - Kota Depok"
-          tableauUrl="https://public.tableau.com/views/MonitoringPerizinanDaerah2024-2025_17586792955470/Dashboard12?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-          embedUrl="https://public.tableau.com/views/MonitoringPerizinanDaerah2024-2025_17586792955470/Dashboard12?:showVizHome=no&:embed=true"
+          tableauUrl="https://public.tableau.com/views/LaporanDataPuskesmasperKecamatanKotaDepokAgustus2025/Dashboard1?:embed=y&:sid=&:redirect=auth&:la=&:display_count=n&:origin=viz_share_link"
+          embedUrl="https://public.tableau.com/views/LaporanDataPuskesmasperKecamatanKotaDepokAgustus2025/Dashboard1?:embed=true"
         />
       </div>
     </div>
