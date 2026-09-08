@@ -1,8 +1,8 @@
 import asyncio
 import logging
+from importlib import import_module
 from typing import Tuple, Optional
 from urllib.parse import urlparse, urlunparse
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 from app.core.config import settings
 
 logger = logging.getLogger(__name__)
@@ -23,6 +23,10 @@ def normalize_tableau_url(raw_url: str) -> str:
 def _sync_capture(url: str) -> Tuple[bytes, Optional[dict]]:
     target_url = normalize_tableau_url(url)
     extracted_data: Optional[dict] = None
+
+    playwright_api = import_module("playwright.sync_api")
+    sync_playwright = playwright_api.sync_playwright
+    playwright_timeout_error = playwright_api.TimeoutError
 
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -69,7 +73,7 @@ def _sync_capture(url: str) -> Tuple[bytes, Optional[dict]]:
             screenshot_bytes = page.screenshot(full_page=False, type="png")
             return screenshot_bytes, extracted_data
 
-        except PlaywrightTimeoutError as e:
+        except playwright_timeout_error as e:
             logger.error(f"Timeout Tableau: {e}")
             raise RuntimeError("Koneksi timeout saat memuat visual Tableau.")
         except Exception as e:

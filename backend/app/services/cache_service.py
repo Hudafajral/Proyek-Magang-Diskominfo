@@ -1,6 +1,6 @@
 import hashlib
 import json
-import redis.asyncio as redis
+import redis.asyncio as redis  # pyright: ignore[reportMissingImports]
 from typing import Optional
 from app.core.config import settings
 from app.schemas.insight import DashboardInsight
