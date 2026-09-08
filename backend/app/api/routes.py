@@ -23,48 +23,44 @@ async def analyze_dashboard(
     target_url = str(payload.url)
 
     logger.info("=== MULAI ANALISIS DASHBOARD ===")
-    logger.info(f"Payload force_refresh: {payload.force_refresh}")
 
-    # 1. Menentukan Visual Hash
+    # 1. Prioritas: Data Tabel Murni dari Filter Frontend
     if payload.raw_table_data:
+        logger.info(f"Menerima {len(payload.raw_table_data)} grup tabel filter aktif.")
         raw_data = payload.raw_table_data
         screenshot_bytes = None
         data_string = json.dumps(raw_data, sort_keys=True)
-        visual_hash = f"json_data_{hashlib.md5(data_string.encode()).hexdigest()}"
-        logger.info(f"Key Hash JSON yang dihasilkan: {visual_hash}")
+        visual_hash = hashlib.md5(data_string.encode()).hexdigest()
     elif payload.image_base64:
+        logger.info("Menerima snapshot visual fallback dari frontend.")
         clean_b64 = payload.image_base64.split(",")[-1]
         screenshot_bytes = base64.b64decode(clean_b64)
         raw_data = None
         visual_hash = cache.generate_hash(screenshot_bytes)
-        logger.info(f"Key Hash Image yang dihasilkan: {visual_hash}")
     else:
-        logger.info("Menjalankan Playwright Scraper...")
+        logger.info("Fallback: Menjalankan Playwright Scraper...")
+        scrape_start = time.time()
         screenshot_bytes, raw_data = await TableauScraperService.capture_dashboard(target_url)
+        logger.info(f"[TIMER] Playwright Selesai: {time.time() - scrape_start:.2f} detik")
         visual_hash = cache.generate_hash(screenshot_bytes)
-        logger.info(f"Key Hash Fallback yang dihasilkan: {visual_hash}")
 
-    # 2. Cek Cache (Selalu cek Redis terlebih dahulu)
-    if True:  # Mengabaikan force_refresh agar cache selalu bekerja
-        cache_start = time.time()
-        cached_insight = await cache.get_cached_insight(visual_hash)
-        if cached_insight:
-            logger.info(f"[TIMER] Cache HIT! Waktu Redis: {time.time() - cache_start:.3f} detik")
-            logger.info(f"[TIMER] TOTAL WAKTU (Dari Cache): {time.time() - total_start_time:.2f} detik")
-            return DashboardAnalysisResponse(
-                cached=True,
-                screenshot_hash=visual_hash,
-                has_extracted_data=raw_data is not None,
-                insight=cached_insight
-            )
-        else:
-            logger.info(f"Cache MISS untuk key: {visual_hash}")
-    else:
-        logger.info("Bypass cache karena force_refresh bernilai True.")
+    # 2. Cek Cache (hanya jika data default tanpa payload interaktif)
+    use_cache = (not payload.force_refresh) and (not payload.raw_table_data) and (payload.image_base64 is None)
+    if use_cache:
+        try:
+            cached_insight = await cache.get_cached_insight(visual_hash)
+            if cached_insight:
+                return DashboardAnalysisResponse(
+                    cached=True,
+                    screenshot_hash=visual_hash,
+                    has_extracted_data=raw_data is not None,
+                    insight=cached_insight
+                )
+        except Exception:
+            pass
 
     # 3. Kirim ke LLM Service
     try:
-        logger.info("Mengirim data ke LLM...")
         llm_start = time.time()
         insight = await llm_service.analyze(screenshot_bytes, raw_data)
         logger.info(f"[TIMER] LLM Selesai: {time.time() - llm_start:.2f} detik")
@@ -72,10 +68,7 @@ async def analyze_dashboard(
         logger.error(f"LLM Processing error: {e}")
         raise HTTPException(status_code=500, detail=f"Gagal menghasilkan analisis AI: {str(e)}")
 
-    # 4. Simpan ke Redis Cache
-    await cache.set_cached_insight(visual_hash, insight)
-
-    logger.info(f"[TIMER] TOTAL WAKTU (Tanpa Cache): {time.time() - total_start_time:.2f} detik")
+    logger.info(f"[TIMER] TOTAL WAKTU: {time.time() - total_start_time:.2f} detik")
     return DashboardAnalysisResponse(
         cached=False,
         screenshot_hash=visual_hash,
