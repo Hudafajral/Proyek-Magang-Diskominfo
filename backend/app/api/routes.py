@@ -56,6 +56,25 @@ def _check_rate_limit(request: Request) -> None:
     bucket.append(now)
 
 
+def _count_input_rows(raw_data: Optional[list]) -> int:
+    if not isinstance(raw_data, list):
+        return 0
+    total = 0
+    for block in raw_data:
+        if isinstance(block, dict) and isinstance(block.get("rows"), list):
+            total += len(block["rows"])
+    return total
+
+
+def _has_truncation_marker(raw_data: Optional[list]) -> bool:
+    if not isinstance(raw_data, list):
+        return False
+    return any(
+        isinstance(block, dict) and bool(block.get("truncated"))
+        for block in raw_data
+    )
+
+
 @router.post("/analyze-dashboard", response_model=DashboardAnalysisResponse)
 async def analyze_dashboard(
     payload: DashboardAnalysisRequest,
@@ -73,6 +92,7 @@ async def analyze_dashboard(
     data_source = "screenshot"
     pii_masked = False
     rows_analyzed = 0
+    data_truncated = False
 
     logger.info("=== MULAI ANALISIS DASHBOARD ===")
     logger.info(
@@ -84,6 +104,8 @@ async def analyze_dashboard(
 
     # 1. Tentukan sumber data & visual hash
     if payload.raw_table_data:
+        input_rows = _count_input_rows(payload.raw_table_data)
+        data_truncated = _has_truncation_marker(payload.raw_table_data)
         raw_data, pii_masked, rows_analyzed = sanitize_table_data(
             payload.raw_table_data,
             settings.pii_keywords,
@@ -94,13 +116,19 @@ async def analyze_dashboard(
                 status_code=422,
                 detail="Data tabel yang dikirim kosong atau formatnya tidak dikenali.",
             )
-        data_string = json.dumps(raw_data, sort_keys=True, ensure_ascii=False)
+        data_truncated = data_truncated or input_rows > rows_analyzed
+        data_string = json.dumps(
+            {"data": raw_data, "truncated": data_truncated},
+            sort_keys=True,
+            ensure_ascii=False,
+        )
         visual_hash = cache.generate_hash(data_string)
         data_source = "table_data"
         logger.info(
-            "Sumber: data tabel | baris=%s | PII dimasking=%s",
+            "Sumber: data tabel | baris=%s | PII dimasking=%s | terpotong=%s",
             rows_analyzed,
             pii_masked,
+            data_truncated,
         )
 
     elif payload.image_base64:
@@ -176,7 +204,12 @@ async def analyze_dashboard(
     try:
         logger.info("Mengirim data ke LLM (%s)...", llm_service.model_name)
         llm_start = time.time()
-        insight = await llm_service.analyze(screenshot_bytes, raw_data)
+        insight = await llm_service.analyze(
+            screenshot_bytes,
+            raw_data,
+            dashboard_title=payload.dashboard_title,
+            data_truncated=data_truncated,
+        )
         logger.info("[TIMER] LLM selesai: %.2f detik", time.time() - llm_start)
     except Exception as exc:  # noqa: BLE001
         logger.error("LLM processing error: %s", exc)
