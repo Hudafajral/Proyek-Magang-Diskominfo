@@ -20,9 +20,12 @@ npm run dev
 
 Buka <http://localhost:5173>. Pastikan:
 
-- Dashboard Tableau tampil.
+- Dashboard Tableau #55 tampil.
+- Bar **Mode Simulasi** muncul dengan 21 pilihan dashboard.
 - `http://localhost:8000/health` mengembalikan `status: ok`.
 - `http://localhost:8000/api/cache/health` mengembalikan `redis: ok`.
+
+Contoh dashboard untuk demo pergantian: **#54 Dashboard Bencana**, **#21 Ketimpangan Kecamatan**, atau **#49 Trend Inflasi**.
 
 ---
 
@@ -38,12 +41,16 @@ dipasang tepat di sebelah tombol Unduh, tanpa mengubah dashboard aslinya."
 
 - Tunjuk navbar, breadcrumb, judul, tanggal, jumlah view.
 - Tunjuk tombol **Unduh** yang sudah ada dan tombol **Analisis AI** di sebelahnya.
-- Tekankan: layout meniru halaman `datainsightDetail/55`.
+- Tunjukkan bar **Mode Simulasi**: ada 21 dashboard aktif. Ganti ke dashboard lain
+  (mis. #54 atau #21) untuk membuktikan halaman tidak hardcoded ke #55.
+- Scroll di dalam area dashboard, lalu klik **Perbesar** untuk menunjukkan mode
+  layar penuh. Tekankan layout dan ukuran meniru `datainsightDetail/55`.
 
 ### 1:00 — Klik Analisis AI (30 detik)
 
 - Modal terbuka, tampil status "Membaca data dashboard..." lalu "Menyusun ringkasan...".
 - Jelaskan: data diambil dari sheet yang sedang aktif, bukan screenshot.
+- Sebutkan bahwa dashboard yang sedang dipilih ikut memengaruhi hasil analisis.
 
 ### 1:30 — Jelaskan hasil (1 menit)
 
@@ -76,7 +83,9 @@ Buka `docs/INTEGRATION.md`, tunjukkan:
 Sampaikan jujur:
 
 - Ini simulasi, belum terpasang di server Diskominfo.
-- Baru satu dashboard contoh.
+- Katalog demo berisi 21 dashboard aktif dari 25 Data Insight.
+- Empat dashboard (`33`, `35`, `42`, `46`) link Tableau-nya sudah 404; banyak
+  URL lain di portal asli terpotong 100 karakter dan perlu diperbaiki di produksi.
 - Perlu kajian privasi (UU PDP) dan keputusan model AI.
 - Usulan pilot 3–5 dashboard selama 4 minggu.
 
@@ -96,7 +105,8 @@ dijadikan pilot pertama?"
 | Berapa biayanya? | Biaya utama di LLM; dengan cache 90% hit, biaya turun drastis. Estimasi ada di proposal. |
 | Apakah harus ubah dashboard? | Tidak. Memakai object `viz` yang sudah ada. |
 | Kalau Tableau membatasi data? | Backend fallback ke screenshot. |
-| Apakah bisa untuk semua dashboard? | Bisa, tapi pilot dimulai dari 3–5 dashboard dengan struktur berbeda. |
+| Apakah bisa untuk semua dashboard? | Simulasi sudah menyediakan 21 dashboard aktif. Empat link Tableau di portal asli rusak (404), jadi perlu perbaikan data dulu. Pilot tetap dimulai dari 3–5 dashboard dengan struktur berbeda. |
+| Kenapa dashboard bisa di-scroll? | Sama seperti portal asli: container 600px dan viz 1400px, jadi bagian bawah dashboard dapat digulir. Tombol **Perbesar** memperluas area. |
 
 ---
 

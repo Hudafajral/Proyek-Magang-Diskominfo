@@ -1,9 +1,56 @@
+import { useState } from 'react';
 import SiteHeader from './components/SiteHeader';
 import SiteFooter from './components/SiteFooter';
 import TableauViewer from './components/TableauViewer';
-import { DASHBOARD } from './config';
+import DashboardPicker from './components/DashboardPicker';
+import {
+  DASHBOARDS,
+  DEFAULT_DASHBOARD,
+  createCustomDashboard,
+  getDashboardDescription,
+} from './config';
+
+function resolveInitialDashboard() {
+  const params = new URLSearchParams(window.location.search);
+  const customUrl = params.get('tableau');
+
+  if (customUrl) {
+    try {
+      return createCustomDashboard({
+        url: customUrl,
+        title: params.get('title') || '',
+      });
+    } catch {
+      // Link kustom tidak valid: jatuh ke dashboard default.
+    }
+  }
+
+  const id = params.get('id');
+  return DASHBOARDS.find((dashboard) => dashboard.id === id) || DEFAULT_DASHBOARD;
+}
 
 export default function App() {
+  const [dashboard, setDashboard] = useState(resolveInitialDashboard);
+
+  const handleSelectDashboard = (nextDashboard) => {
+    setDashboard(nextDashboard);
+
+    const url = new URL(window.location.href);
+    if (nextDashboard.isCustom) {
+      url.searchParams.set('tableau', nextDashboard.tableauUrl);
+      url.searchParams.set('title', nextDashboard.title);
+      url.searchParams.delete('id');
+    } else {
+      url.searchParams.set('id', nextDashboard.id);
+      url.searchParams.delete('tableau');
+      url.searchParams.delete('title');
+    }
+    window.history.replaceState({}, '', url);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const description = getDashboardDescription(dashboard);
+
   return (
     <>
       <SiteHeader />
@@ -19,18 +66,20 @@ export default function App() {
                 <a href="https://satudata.depok.go.id/User/datainsight">Data Insight</a>
               </li>
               <li className="breadcrumb-item active" aria-current="page">
-                {DASHBOARD.title}
+                {dashboard.title}
               </li>
             </ol>
           </nav>
         </div>
 
         <div className="section-page container pt-2">
-          <TableauViewer dashboard={DASHBOARD} />
+          <DashboardPicker current={dashboard} onSelect={handleSelectDashboard} />
+
+          <TableauViewer key={dashboard.id} dashboard={dashboard} />
 
           <hr />
 
-          <p className="dashboard-description">{DASHBOARD.description}</p>
+          <p className="dashboard-description">{description}</p>
 
           <div className="card info-card">
             <div className="card-body">
@@ -39,16 +88,26 @@ export default function App() {
                   <div className="label">Organisasi</div>
                   <div className="info-value">
                     <i className="fas fa-building me-2" aria-hidden="true" />
-                    <a href="https://satudata.depok.go.id/User/organisasi">
-                      {DASHBOARD.organization}
-                    </a>
+                    {dashboard.sourceUrl ? (
+                      <a
+                        href="https://satudata.depok.go.id/User/organisasi"
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {dashboard.organization}
+                      </a>
+                    ) : (
+                      dashboard.organization
+                    )}
                   </div>
                 </div>
                 <div className="col-lg-6 info-col">
                   <div className="label">Disusun oleh</div>
                   <div className="info-value">
                     <i className="fas fa-chart-area me-2" aria-hidden="true" />
-                    {DASHBOARD.author}
+                    {dashboard.isCustom
+                      ? 'Tableau Public'
+                      : 'Bidang Data dan Statistik Sektoral'}
                   </div>
                 </div>
               </div>
@@ -57,7 +116,15 @@ export default function App() {
 
           <div className="dataset-related">
             <h4>Dataset Terkait</h4>
-            <p className="text-muted mb-0">-</p>
+            <p className="text-muted mb-0">
+              {dashboard.sourceUrl ? (
+                <a href={dashboard.sourceUrl} target="_blank" rel="noreferrer">
+                  Data Insight #{dashboard.id} di portal Satu Data Depok
+                </a>
+              ) : (
+                '-'
+              )}
+            </p>
           </div>
         </div>
       </main>

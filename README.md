@@ -12,7 +12,9 @@ Simulasi fitur **"Analisis AI"** untuk portal [Satu Data Kota Depok](https://sat
 |---|---|
 | Tampilan | Meniru halaman `datainsightDetail/55` Satu Data Depok (navbar, breadcrumb, judul, metadata, tombol Unduh, footer) |
 | Integrasi Tableau | Memakai **JS API v2.8** dan object global `viz`, sama seperti situs asli |
-| Data | Memakai dashboard nyata **Monitoring Perizinan Daerah Tahun 2024–2026** (Data Insight #55) |
+| Data | Katalog **21 dashboard aktif** dari 25 Data Insight; dashboard #55 menjadi contoh default |
+| Navigasi | Bar **Mode Simulasi** untuk memilih dashboard lain atau menempel link Tableau Public sendiri |
+| Ukuran dashboard | Container `600px` dengan scroll internal dan viz `1400px`, sama seperti portal asli; ada tombol **Perbesar** untuk layar penuh |
 | Privasi | Kolom PII (`nama`, `NIK`, `NIP`, `alamat`, dll.) dimasking sebelum dikirim ke LLM |
 | Cache | Key berbasis `dashboard_id` + hash konten, dengan fallback in-memory |
 | Keamanan | CORS dibatasi, rate limit per IP, validasi host scraping (anti-SSRF) |
@@ -84,11 +86,13 @@ Jika `getSummaryDataAsync()` dibatasi oleh author dashboard, frontend mengirim U
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── AnalyzeButton.jsx
+│   │   │   ├── DashboardPicker.jsx  # Pemilih dashboard + link Tableau kustom
 │   │   │   ├── InsightModal.jsx
 │   │   │   ├── SiteFooter.jsx
 │   │   │   ├── SiteHeader.jsx
 │   │   │   └── TableauViewer.jsx
-│   │   ├── config.js                # Dashboard contoh + API base
+│   │   ├── data/dashboards.json     # Katalog 21 dashboard aktif
+│   │   ├── config.js                # Katalog, default, helper URL, API base
 │   │   ├── App.jsx
 │   │   └── index.css
 │   ├── index.html
@@ -155,14 +159,23 @@ Buka <http://localhost:5173>. Vite otomatis mem-proxy `/api` ke backend.
 
 ## 🔄 Alur demo
 
-1. Halaman menampilkan dashboard Tableau #55.
-2. Klik **Analisis AI** di kanan atas (sebelah tombol Unduh).
-3. Frontend mengekstrak data sheet yang aktif via Tableau JS API.
-4. Backend memasking PII, mengecek cache, lalu memanggil Gemini.
-5. Modal menampilkan ringkasan, tren, temuan, sumber, dan disclaimer.
-6. Klik sekali lagi → cache hit, hasil muncul lebih cepat.
+1. Halaman menampilkan dashboard Tableau #55 secara default.
+2. Gunakan **Mode Simulasi → Pilih dashboard** untuk berpindah ke dashboard lain, atau tempel link Tableau Public lewat tombol **Link Tableau**.
+3. Klik **Analisis AI** di kanan atas (sebelah tombol Unduh).
+4. Frontend mengekstrak data sheet yang aktif via Tableau JS API.
+5. Backend memasking PII, mengecek cache, lalu memanggil Gemini.
+6. Modal menampilkan ringkasan, tren, temuan, sumber, dan disclaimer.
+7. Klik sekali lagi → cache hit, hasil muncul lebih cepat.
 
 Skenario presentasi lengkap ada di [`docs/DEMO.md`](docs/DEMO.md).
+
+### Ganti dashboard
+
+- **Katalog**: 21 dashboard aktif dari 25 Data Insight, diambil dari portal Satudata. Dashboard #55 tetap menjadi default.
+- **URL**: dashboard katalog bisa dibuka langsung dengan `?id=21`; dashboard kustom memakai `?tableau=<url-terenkode>&title=<judul>`.
+- **Link Tableau kustom**: tempel link `https://public.tableau.com/...` pada bar Mode Simulasi. Hanya host `public.tableau.com` yang diterima, sesuai validasi backend.
+- **Ukuran**: area Tableau memakai container scrollable `600px` dan viz `1400px`, sama seperti portal asli. Tombol **Perbesar** membuka dashboard satu layar penuh; `Escape` atau tombol **Tutup** mengembalikannya.
+- **Catatan temuan**: banyak URL Tableau di database portal asli terpotong tepat **100 karakter**. Simulasi memakai base URL tanpa query agar dashboard tetap terbuka. Empat dashboard (`33`, `35`, `42`, `46`) tidak ditampilkan karena link Tableau-nya sudah 404/rusak di portal asli.
 
 ---
 
@@ -197,7 +210,9 @@ npm run build
 
 ## ⚠️ Batasan simulasi
 
-- Baru satu dashboard contoh (id 55), bukan seluruh 25 Data Insight.
+- Katalog berisi 21 dashboard aktif; 4 Data Insight (`33`, `35`, `42`, `46`) tidak ditampilkan karena link Tableau-nya rusak di portal asli.
+- URL katalog memakai base URL tanpa query karena keterbatasan panjang URL di portal asli. Untuk produksi, perbaiki kolom URL di database agar query Tableau tidak terpotong.
+- Dashboard kustom hanya menerima link publik dari `public.tableau.com`.
 - Feedback belum dikirim ke backend; hanya disimpan di `localStorage`.
 - Hitungan pengunjung pada footer masih statis.
 - Cache in-memory hanya fallback satu proses; produksi tetap butuh Redis.
