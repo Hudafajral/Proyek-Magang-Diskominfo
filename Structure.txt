@@ -3,6 +3,7 @@
 ├── README.md
 ├── Structure.txt
 ├── backend
+│   ├── .dockerignore
 │   ├── .env
 │   ├── .env.example
 │   ├── Dockerfile
@@ -17,21 +18,35 @@
 │   │   └── services
 │   │       ├── cache_service.py
 │   │       ├── llm_service.py
+│   │       ├── sanitizer.py
 │   │       └── scraper.py
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── tests
+│       ├── __init__.py
+│       └── test_core.py
+├── docker-compose.yml
+├── docs
+│   ├── DEMO.md
+│   ├── INTEGRATION.md
+│   └── PROPOSAL.md
 ├── frontend
+│   ├── .env.example
 │   ├── index.html
 │   ├── package-lock.json
 │   ├── package.json
-│   ├── postcss.config.js
+│   ├── public
+│   │   ├── help-button.png
+│   │   └── logo-sadepok.png
 │   ├── src
 │   │   ├── App.jsx
 │   │   ├── components
 │   │   │   ├── AnalyzeButton.jsx
 │   │   │   ├── InsightModal.jsx
+│   │   │   ├── SiteFooter.jsx
+│   │   │   ├── SiteHeader.jsx
 │   │   │   └── TableauViewer.jsx
+│   │   ├── config.js
 │   │   ├── index.css
 │   │   └── main.jsx
-│   ├── tailwind.config.js
 │   └── vite.config.js
 └── gen_structure.py

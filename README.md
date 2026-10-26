@@ -1,213 +1,212 @@
-# 📊 AI Dashboard Insight
+# 📊 Simulasi Analisis AI Dashboard — Satu Data Kota Depok
 
-Sistem otomasi analisis visual dashboard publik **Tableau Public** berbasis arsitektur decoupled modern. Sistem ini memanfaatkan **Playwright Headless Browser** untuk visual extraction, **Redis Visual-Hashing Cache** untuk efisiensi komputasi visual, serta **Multimodal Vision AI (Google Gemini)** untuk mengekstraksi metrik penting, mendeteksi anomali grafik, dan merangkum *executive summary* secara real-time
+Simulasi fitur **"Analisis AI"** untuk portal [Satu Data Kota Depok](https://satudata.depok.go.id/User/datainsight). Tombol ditempatkan di kanan atas dashboard Tableau, tepat di sebelah tombol **Unduh**, lalu menampilkan ringkasan otomatis: topik, ringkasan eksekutif, tren utama, dan angka menonjol.
 
----
-
-## 🛠️ Tech Stack & Bahasa Pemrograman
-
-* **Backend:** Python 3.10+ (FastAPI, Uvicorn, Asyncio, Pydantic)
-* **Frontend:** JavaScript / TypeScript (React.js, Vite, Tailwind CSS / Modern CSS, Lucide Icons)
-* **Scraping Engine:** Playwright (Chromium Headless)
-* **Artificial Intelligence:** Google Gemini Multimodal Vision API
-* **Caching Layer:** Redis (Visual image hash caching)
+> **Konteks:** ini adalah prototipe untuk diajukan ke Bidang Website Diskominfo Kota Depok. Alur tombol dipertahankan: **klik → ekstrak data dashboard → analisis AI → tampilkan modal insight**.
 
 ---
 
-## 📥 Prasyarat Software yang Harus Didownload & Diinstal
+## ✨ Yang berubah di versi 2
 
-Sebelum mulai menjalankan proyek, pastikan perangkat lunak berikut telah terpasang di komputer Anda:
-
-1. **Python (v3.10 atau lebih baru)**
-   * Unduh: [python.org/downloads](https://www.python.org/downloads/)
-   * ⚠️ *Wajib saat instalasi di Windows:* Centang opsi **"Add Python to PATH"**.
-2. **Node.js (v18 LTS atau v20 LTS)**
-   * Unduh: [nodejs.org](https://nodejs.org/) (Sudah otomatis menyertakan package manager `npm`).
-3. **Git**
-   * Unduh: [git-scm.com](https://git-scm.com/)
-4. **Google Gemini API Key**
-   * Buat API Key gratis di [Google AI Studio](https://aistudio.google.com/).
-5. **Redis Server (Opsional)**
-   * Bisa menggunakan Redis lokal, Docker, atau layanan cloud instan seperti [Upstash Redis](https://upstash.com/).
+| Area | Perubahan |
+|---|---|
+| Tampilan | Meniru halaman `datainsightDetail/55` Satu Data Depok (navbar, breadcrumb, judul, metadata, tombol Unduh, footer) |
+| Integrasi Tableau | Memakai **JS API v2.8** dan object global `viz`, sama seperti situs asli |
+| Data | Memakai dashboard nyata **Monitoring Perizinan Daerah Tahun 2024–2026** (Data Insight #55) |
+| Privasi | Kolom PII (`nama`, `NIK`, `NIP`, `alamat`, dll.) dimasking sebelum dikirim ke LLM |
+| Cache | Key berbasis `dashboard_id` + hash konten, dengan fallback in-memory |
+| Keamanan | CORS dibatasi, rate limit per IP, validasi host scraping (anti-SSRF) |
+| AI | Model dari `.env`, fallback model, retry 429, dukungan Claude |
+| Output | Dilengkapi metadata sumber, waktu analisis, jumlah baris, status masking, dan disclaimer |
+| Aksesibilitas | Modal mendukung Escape, focus trap, `aria-*`, dan tombol feedback |
+| Dokumentasi | Panduan integrasi PHP, proposal, dan skenario demo |
 
 ---
 
-## 📂 Struktur Direktori Repositori
+## 🏗️ Arsitektur
+
+```
+┌──────────────────────────────────────────────┐
+│ Browser — halaman Data Insight (React demo)  │
+│                                              │
+│  tombol "Analisis AI"                        │
+│        │                                     │
+│        ├─ Tableau JS API v2.8                │
+│        │  viz.getWorkbook()                  │
+│        │  → getSummaryDataAsync()            │
+│        │  (data tabel yang sedang aktif)     │
+│        ▼                                     │
+│  POST /api/analyze-dashboard                 │
+└──────────────────┬───────────────────────────┘
+                   │
+                   ▼
+┌──────────────────────────────────────────────┐
+│ Backend FastAPI (:8000)                      │
+│                                              │
+│  1. Sanitasi PII + batasi baris              │
+│  2. Hitung hash konten                       │
+│  3. Cek cache Redis (Upstash)                │
+│  4. Panggil Gemini / Claude                  │
+│  5. Simpan hasil ke cache                    │
+└──────────────────┬───────────────────────────┘
+                   │
+                   ▼
+┌──────────────────────────────────────────────┐
+│ Redis (Upstash)  +  Google Gemini API        │
+└──────────────────────────────────────────────┘
+```
+
+Jika `getSummaryDataAsync()` dibatasi oleh author dashboard, frontend mengirim URL saja dan backend memakai **Playwright** sebagai fallback untuk mengambil screenshot dashboard.
+
+---
+
+## 📂 Struktur
 
 ```text
-proyek/
-├── backend/                  # REST API & Worker Engine (FastAPI)
+.
+├── backend/
 │   ├── app/
-│   │   ├── api/              # Endpoints & route handlers
-│   │   ├── core/             # Konfigurasi aplikasi & security
-│   │   ├── services/         # Playwright scraper, Gemini client, Redis cache
-│   │   └── main.py           # Entrypoint server FastAPI
-│   ├── requirements.txt      # Daftar dependensi library Python
-│   └── .env.example          # Contoh file konfigurasi environment
-├── frontend/                 # Client Interface (React + Vite)
+│   │   ├── api/routes.py            # Endpoint /api/analyze-dashboard
+│   │   ├── core/config.py           # Konfigurasi .env
+│   │   ├── main.py                  # Entrypoint FastAPI + CORS
+│   │   ├── schemas/insight.py       # Kontrak request/response
+│   │   └── services/
+│   │       ├── cache_service.py     # Redis + fallback in-memory
+│   │       ├── llm_service.py       # Gemini / Claude
+│   │       ├── sanitizer.py         # Masking PII
+│   │       └── scraper.py           # Playwright fallback
+│   ├── tests/test_core.py           # Unit test (unittest)
+│   ├── .env.example
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/
+│   ├── public/                      # Logo & aset
 │   ├── src/
-│   │   ├── components/       # Komponen visual dashboard & insight cards
-│   │   ├── App.jsx           # Root layout & state logic
-│   │   └── main.jsx          # Entrypoint React
-│   ├── package.json          # Manifest dependensi & script runner npm
-│   └── vite.config.js        # Konfigurasi bundler Vite
-├── .gitignore                # File filter pelacakan Git
-└── README.md                 # Dokumentasi panduan proyek
+│   │   ├── components/
+│   │   │   ├── AnalyzeButton.jsx
+│   │   │   ├── InsightModal.jsx
+│   │   │   ├── SiteFooter.jsx
+│   │   │   ├── SiteHeader.jsx
+│   │   │   └── TableauViewer.jsx
+│   │   ├── config.js                # Dashboard contoh + API base
+│   │   ├── App.jsx
+│   │   └── index.css
+│   ├── index.html
+│   └── vite.config.js               # Proxy /api → backend
+├── docs/
+│   ├── DEMO.md
+│   ├── INTEGRATION.md
+│   └── PROPOSAL.md
+├── docker-compose.yml
+└── README.md
 ```
 
 ---
 
-## 🚀 Panduan Lengkap Menjalankan Aplikasi
+## 🚀 Menjalankan
 
-Aplikasi ini menggunakan arsitektur terpisah (*decoupled*), sehingga Backend dan Frontend **dijalankan bersamaan menggunakan dua terminal terpisah**.
+### Prasyarat
 
----
+- Python 3.10+
+- Node.js 18+
+- Redis (opsional; bisa memakai Upstash)
+- Gemini API key
 
-### Terminal 1: Menjalankan Backend (FastAPI)
+### 1. Backend
 
-1. **Buka terminal pertama di folder proyek, lalu masuk ke folder backend:**
-   ```bash
-   cd backend
-   ```
+```powershell
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+playwright install chromium
+copy .env.example .env
+```
 
-2. **Buat dan aktifkan Virtual Environment Python:**
+Isi `.env`:
 
-   * **Windows (PowerShell / Command Prompt):**
-     ```powershell
-     python -m venv venv
-     venv\Scripts\activate
-     ```
+```env
+GEMINI_API_KEY="..."
+GEMINI_MODEL="gemini-3.6-flash"
+REDIS_URL="rediss://default:PASSWORD@HOST:6379"
+```
 
-   * **Linux / macOS:**
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
+Jalankan:
 
-   *(Tanda berhasil: muncul tanda `(venv)` di ujung kiri baris perintah terminal).*
+```powershell
+uvicorn app.main:app --reload --port 8000
+```
 
-3. **Instal seluruh library dependensi Python:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+- API: <http://localhost:8000>
+- Swagger: <http://localhost:8000/docs>
+- Health: <http://localhost:8000/health>
 
-4. **Unduh browser Chromium khusus untuk Playwright:**
-   ```bash
-   playwright install chromium
-   playwright install-deps chromium
-   ```
+### 2. Frontend
 
-5. **Buat file konfigurasi `.env`:**
+```powershell
+cd frontend
+npm install
+npm run dev
+```
 
-   Salin file template `.env.example` menjadi `.env`:
-
-   * **Windows:**
-     ```cmd
-     copy .env.example .env
-     ```
-
-   * **Linux / macOS:**
-     ```bash
-     cp .env.example .env
-     ```
-
-   Buka file `.env` di text editor dan isi kredensial API:
-   ```env
-   GEMINI MODEL = masukkan_model_gemini_kamu_di_sini
-   GEMINI_API_KEY=masukkan_api_key_gemini_anda_di_sini
-   PORT=8000
-
-   # Konfigurasi Redis Cloud (Sangat disarankan pakai Upstash agar praktis)
-   # Dapatkan kredensial gratis di [https://upstash.com/](https://upstash.com/)
-   REDIS_HOST=nama-database-kamu.upstash.io
-   REDIS_PORT=12345
-   REDIS_PASSWORD=password_dari_upstash
-   ```
-
-6. **Jalankan Server Backend FastAPI:**
-   ```powershell
-   uvicorn app.main:app --reload --port 8000 --loop asyncio
-   ```
-
-   * Backend aktif di: **`http://localhost:8000`**
-   * Dokumentasi Swagger API: **`http://localhost:8000/docs`**
+Buka <http://localhost:5173>. Vite otomatis mem-proxy `/api` ke backend.
 
 ---
 
-### Terminal 2: Menjalankan Frontend (React + Vite)
+## 🔄 Alur demo
 
-1. **Buka jendela terminal kedua (klik tanda `+` di panel terminal VS Code), lalu masuk ke folder frontend:**
-   ```bash
-   cd frontend
-   ```
+1. Halaman menampilkan dashboard Tableau #55.
+2. Klik **Analisis AI** di kanan atas (sebelah tombol Unduh).
+3. Frontend mengekstrak data sheet yang aktif via Tableau JS API.
+4. Backend memasking PII, mengecek cache, lalu memanggil Gemini.
+5. Modal menampilkan ringkasan, tren, temuan, sumber, dan disclaimer.
+6. Klik sekali lagi → cache hit, hasil muncul lebih cepat.
 
-2. **Instal seluruh dependensi Node.js:**
-   ```bash
-   npm install
-   ```
-
-3. **Jalankan development server frontend:**
-
-   * **Standar:**
-     ```bash
-     npm run dev
-     ```
-
-   * **Windows (jika script diblokir PowerShell Execution Policy):**
-     ```powershell
-     npm.cmd run dev
-     ```
-
-4. **Akses Dashboard di Web Browser:**
-
-   Buka peramban browser dan akses:
-   ```text
-   http://localhost:5173
-   ```
+Skenario presentasi lengkap ada di [`docs/DEMO.md`](docs/DEMO.md).
 
 ---
 
-## 🧪 Alur Kerja Sistem (Workflow)
+## 🔒 Keamanan & privasi
 
-```text
-[ Browser User ] ──▶ Akses http://localhost:5173 & Input URL Tableau
-                            │
-                            ▼
-[ React Frontend ] ──▶ Mengirim request HTTP POST ke /analyze
-                            │
-                            ▼
-[ FastAPI Backend ] (Port 8000)
-    │
-    ├── 1. Playwright membuka Chromium Headless & screenshot visual dashboard Tableau
-    ├── 2. Redis Visual Hasher memeriksa cache gambar (mencegah scraping ulang)
-    └── 3. Google Gemini Vision membaca screenshot visual & mengekstrak data
-    │
-    ▼
-[ Dashboard UI ] ──▶ Menampilkan kartu metrik, tren visual, dan executive summary real-time
+- `.env` **tidak di-commit** (sudah masuk `.gitignore`).
+- Kolom PII dimasking sebelum dikirim ke LLM; baris dibatasi (`MAX_TABLE_ROWS`).
+- Host scraping dibatasi (`ALLOWED_SCRAPE_HOSTS`) untuk mencegah SSRF.
+- Rate limit per IP (`RATE_LIMIT_PER_MINUTE`, default 30/menit).
+- CORS hanya untuk origin yang terdaftar.
+- Untuk produksi: gunakan **proxy PHP** agar API key tidak pernah sampai ke browser, dan pertimbangkan **Vertex AI region Jakarta** atau LLM on-prem untuk kedaulatan data.
+
+---
+
+## 🧪 Pengujian
+
+```powershell
+cd backend
+venv\Scripts\python.exe -m unittest discover -s tests -v
+```
+
+Cakupan: masking PII, truncation baris, pembentukan cache key, dan parsing JSON dari LLM.
+
+Build frontend:
+
+```powershell
+cd frontend
+npm run build
 ```
 
 ---
 
-## 🔧 Solusi Kendala Umum (Troubleshooting)
+## ⚠️ Batasan simulasi
 
-* **Error PowerShell:** `File npm.ps1 cannot be loaded because running scripts is disabled on this system`
-  * **Solusi:** Jalankan perintah berikut sekali di PowerShell:
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-    ```
-    Atau panggil runner `.cmd` secara langsung: `npm.cmd run dev`.
+- Baru satu dashboard contoh (id 55), bukan seluruh 25 Data Insight.
+- Feedback belum dikirim ke backend; hanya disimpan di `localStorage`.
+- Hitungan pengunjung pada footer masih statis.
+- Cache in-memory hanya fallback satu proses; produksi tetap butuh Redis.
+- Integrasi PHP belum diterapkan di repo ini; contoh kodenya ada di [`docs/INTEGRATION.md`](docs/INTEGRATION.md).
 
-* **Error Terminal:** `uvicorn : The term 'uvicorn' is not recognized`
-  * **Solusi:** Pastikan Virtual Environment sudah aktif (`venv\Scripts\activate`) atau panggil modul via Python:
-    ```powershell
-    python -m uvicorn app.main:app --reload --port 8000 --loop asyncio
-    ```
+---
 
-* **Error Playwright:** `Executable doesn't exist at ...`
-  * **Solusi:** Jalankan kembali perintah penginstalan Chromium di folder backend:
-    ```bash
-    playwright install chromium
-    ```
-* **Kendala:** Proses analisis AI sangat lambat (memakan waktu 1 hingga 2 menit) padahal scraping Playwright selesai cepat.
-  * **Penyebab:** Sistem backend nyangkut menunggu batas waktu (timeout) karena server Redis lokal (localhost) mati atau belum terinstal.
-  * **Solusi:** Ganti pengaturan Redis lokal ke layanan cloud instan. Buat akun gratis di **Upstash Redis**, ambil endpoint URL, Port, dan Password-nya, lalu masukkan ke dalam file `.env`.
+## 📄 Dokumen pendukung
+
+- [`docs/INTEGRATION.md`](docs/INTEGRATION.md) — cara menempel fitur ke halaman PHP Satudata.
+- [`docs/PROPOSAL.md`](docs/PROPOSAL.md) — bahan proposal: arsitektur, risiko, biaya, rencana pilot.
+- [`docs/DEMO.md`](docs/DEMO.md) — skenario presentasi 5 menit.

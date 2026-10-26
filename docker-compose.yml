@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./backend
+    container_name: sadepok-ai-backend
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+
+  frontend:
+    image: node:20-alpine
+    container_name: sadepok-ai-frontend
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    environment:
+      VITE_PROXY_TARGET: "http://backend:8000"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
