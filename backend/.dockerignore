@@ -1,0 +1,15 @@
+# Jangan pernah membawa file rahasia ke dalam image Docker.
+.env
+.env.*
+!.env.example
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Test & artefak lokal
+tests/
+*.log
