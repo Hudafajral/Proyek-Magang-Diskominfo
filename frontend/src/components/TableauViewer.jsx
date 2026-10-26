@@ -224,12 +224,14 @@ export default function TableauViewer({ dashboard }) {
       );
 
       // Batasi total waktu ekstraksi agar dashboard yang lambat tidak membuat
-      // modal AI menggantung. Bila lewat batas, backend memakai screenshot.
+      // modal AI menggantung. Data yang sudah terkumpul ditandai tidak lengkap.
       const deadline = Date.now() + 15000;
       const result = [];
+      let extractionIncomplete = false;
       for (const sheet of sheets) {
         if (Date.now() >= deadline) {
           console.warn('[AI Insight] Batas waktu ekstraksi tercapai.');
+          extractionIncomplete = true;
           break;
         }
 
@@ -238,6 +240,7 @@ export default function TableauViewer({ dashboard }) {
             '[AI Insight] Sheet tidak mendukung getSummaryDataAsync:',
             sheet?.getName?.()
           );
+          extractionIncomplete = true;
           continue;
         }
 
@@ -263,13 +266,22 @@ export default function TableauViewer({ dashboard }) {
             result.push({
               sheet: typeof sheet.getName === 'function' ? sheet.getName() : 'Sheet',
               rows,
+              // maxRows=1000; menyentuh batas berarti data bisa saja terpotong.
+              truncated: rows.length >= 1000,
             });
           }
         } catch (err) {
-          // Sebagian author membatasi getSummaryDataAsync. Backend akan fallback
-          // ke screenshot bila tidak ada data tabel yang berhasil diekstrak.
+          // Sebagian author membatasi getSummaryDataAsync. Tandai data tidak
+          // lengkap; backend tetap memakai tabel parsial bila ada.
+          extractionIncomplete = true;
           console.warn(`Data tabel sheet "${sheet?.getName?.()}" dibatasi:`, err);
         }
+      }
+
+      if (extractionIncomplete) {
+        result.forEach((block) => {
+          block.truncated = true;
+        });
       }
 
       return result.length > 0 ? result : null;

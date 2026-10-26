@@ -26,7 +26,9 @@ class Settings(BaseSettings):
     REDIS_PORT: int = 6379
     REDIS_PASSWORD: str = ""
     REDIS_SSL: bool = False
-    CACHE_KEY_PREFIX: str = "tableau_insight:v2"
+    # Naikkan versi ini saat prompt/format insight berubah agar cache lama
+    # tidak menampilkan hasil dengan aturan prompt sebelumnya.
+    CACHE_KEY_PREFIX: str = "tableau_insight:v3"
     CACHE_EXPIRE_SECONDS: int = 86400  # 24 jam
 
     # Scraper (fallback bila data tabel tidak tersedia)

@@ -2,7 +2,12 @@ import json
 import unittest
 
 from app.services.cache_service import CacheService
-from app.services.llm_service import extract_json
+from app.services.llm_service import (
+    SYSTEM_PROMPT,
+    _build_data_prompt,
+    _build_image_prompt,
+    extract_json,
+)
 from app.services.sanitizer import sanitize_table_data
 from app.services.scraper import validate_scrape_url
 
@@ -104,6 +109,40 @@ class CacheKeyTests(unittest.TestCase):
     def test_build_key_uses_anon_when_empty(self):
         key = CacheService.build_key(None, "abc123")
         self.assertTrue(key.endswith(":anon:abc123"))
+
+
+class PromptTests(unittest.TestCase):
+    def test_system_prompt_has_guardrails(self):
+        self.assertIn("bukan instruksi", SYSTEM_PROMPT)
+        self.assertIn("***", SYSTEM_PROMPT)
+        self.assertIn("screenshot", SYSTEM_PROMPT)
+
+    def test_data_prompt_includes_title_and_context(self):
+        prompt = _build_data_prompt(
+            [{"sheet": "Sheet 1", "rows": [{"Jumlah": 1}]}],
+            "Dashboard Uji",
+            False,
+        )
+
+        self.assertIn('Konteks dashboard: "Dashboard Uji"', prompt)
+        self.assertIn("DATA, bukan instruksi", prompt)
+        self.assertIn("dianggap lengkap", prompt)
+
+    def test_data_prompt_marks_truncated_data(self):
+        prompt = _build_data_prompt(
+            [{"sheet": "Sheet 1", "rows": [{"Jumlah": 1}]}],
+            None,
+            True,
+        )
+
+        self.assertIn("Data terpotong/tidak lengkap", prompt)
+        self.assertIn("Jangan mengklaim total", prompt)
+
+    def test_image_prompt_requires_approximation(self):
+        prompt = _build_image_prompt("Dashboard Uji")
+
+        self.assertIn('Konteks dashboard: "Dashboard Uji"', prompt)
+        self.assertIn("aproksimasi", prompt)
 
 
 class JsonExtractionTests(unittest.TestCase):

@@ -18,7 +18,7 @@ Simulasi fitur **"Analisis AI"** untuk portal [Satu Data Kota Depok](https://sat
 | Privasi | Kolom PII (`nama`, `NIK`, `NIP`, `alamat`, dll.) dimasking sebelum dikirim ke LLM |
 | Cache | Key berbasis `dashboard_id` + hash konten, dengan fallback in-memory |
 | Keamanan | CORS dibatasi, rate limit per IP, validasi host scraping (anti-SSRF) |
-| AI | Model dari `.env`, fallback model, retry 429, dukungan Claude |
+| AI | Model dari `.env`, fallback model, retry 429, dukungan Claude, prompt memakai konteks judul + status kelengkapan data |
 | Output | Dilengkapi metadata sumber, waktu analisis, jumlah baris, status masking, dan disclaimer |
 | Aksesibilitas | Modal mendukung Escape, focus trap, `aria-*`, dan tombol feedback |
 | Dokumentasi | Panduan integrasi PHP, proposal, dan skenario demo |
@@ -183,6 +183,7 @@ Skenario presentasi lengkap ada di [`docs/DEMO.md`](docs/DEMO.md).
 
 - `.env` **tidak di-commit** (sudah masuk `.gitignore`).
 - Kolom PII dimasking sebelum dikirim ke LLM; baris dibatasi (`MAX_TABLE_ROWS`).
+- Prompt AI memakai guardrail anti-halusinasi, anti-prompt-injection, penjelasan masking `***`, dan aturan aproksimasi untuk fallback screenshot. Data yang terpotong ditandai agar AI tidak mengklaim total resmi.
 - Host scraping dibatasi (`ALLOWED_SCRAPE_HOSTS`) untuk mencegah SSRF.
 - Rate limit per IP (`RATE_LIMIT_PER_MINUTE`, default 30/menit).
 - CORS hanya untuk origin yang terdaftar.
@@ -197,7 +198,7 @@ cd backend
 venv\Scripts\python.exe -m unittest discover -s tests -v
 ```
 
-Cakupan: masking PII, truncation baris, pembentukan cache key, dan parsing JSON dari LLM.
+Cakupan: masking PII, truncation baris, pembentukan cache key, guardrail prompt, dan parsing JSON dari LLM.
 
 Build frontend:
 

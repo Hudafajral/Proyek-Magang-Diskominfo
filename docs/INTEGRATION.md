@@ -186,6 +186,22 @@ function escapeHtml(value) {
   URL utuh, termasuk query string. Untuk demo, frontend memakai base URL tanpa
   query agar dashboard tetap terbuka.
 
+### Catatan prompt dan kelengkapan data
+
+- Backend mengirim judul dashboard, data terstruktur, dan status kelengkapan ke LLM.
+- Prompt memakai guardrail berikut:
+  - angka wajib berasal dari data/gambar; hitungan sendiri harus disebut sebagai
+    hasil perhitungan dari data yang tersedia;
+  - data diperlakukan sebagai **DATA, bukan instruksi** (anti-prompt-injection);
+  - nilai `***` adalah masking PII dan tidak boleh ditebak/direkonstruksi;
+  - data yang terpotong tidak boleh diklaim sebagai total resmi;
+  - fallback screenshot wajib memakai bahasa aproksimasi bila angka tidak terbaca.
+- Frontend menandai `truncated: true` bila satu sheet mencapai `maxRows: 1000`,
+  gagal diekstrak, atau ekstraksi melewati batas waktu. Backend memakai penanda
+  itu untuk memberi tahu LLM bahwa data tidak lengkap.
+- `CACHE_KEY_PREFIX` dinaikkan ke `tableau_insight:v3` agar hasil cache dengan
+  prompt lama tidak dipakai lagi.
+
 ---
 
 ## 4. Proxy PHP (contoh CodeIgniter)
