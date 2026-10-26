@@ -173,14 +173,20 @@ function escapeHtml(value) {
 
 ### Catatan ukuran dan URL Tableau
 
-- Pertahankan perilaku portal asli: container `#tableauViz` memakai
-  `max-width:100%; height:600px; overflow:auto;`, sedangkan opsi Tableau memakai
-  `height: "1400px"`. Dengan begitu bagian bawah dashboard bisa digulir dan tidak
-  terpotong.
-- Jika ingin menambahkan tombol **Perbesar**, buat wrapper yang memenuhi viewport,
-  lalu tetap beri `overflow:auto` pada container Tableau. Jangan mengubah tinggi
-  iframe menjadi `100%` tanpa pengaturan fit dashboard, karena dashboard bisa
-  terpotong.
+- Ukuran dashboard diambil dari Tableau melalui `getSize()` pada sheet aktif.
+  Tableau Public umumnya mengembalikan `behavior: "exactly"` beserta `width` dan
+  `height` publikasi (contoh dashboard #55: `1200 × 1200`).
+- Tampilan menyediakan dua mode:
+  - **Fit lebar** (default): iframe dirender pada ukuran asli lalu diskalakan
+    secara visual agar pas dengan lebar container; tinggi mengikuti rasio asli.
+    Container tetap bisa digulir vertikal.
+  - **Ukuran asli**: iframe memakai ukuran publikasi tanpa skala. Container
+    memakai `overflow:auto` sehingga dashboard lebar/berpanel kiri-kanan bisa
+    digulir horizontal dan vertikal.
+- Fallback untuk dashboard dengan ukuran `automatic`: iframe memakai lebar
+  container dan tinggi awal `1400px`, lalu konten menyesuaikan sendiri.
+- Tombol **Perbesar** memakai wrapper yang memenuhi viewport; skala Fit lebar
+  dihitung ulang lewat `ResizeObserver` saat ukuran container berubah.
 - Banyak URL Tableau di database portal asli tersimpan terpotong tepat **100
   karakter**. Perbaiki panjang kolom URL (mis. `TEXT`/`VARCHAR(500)`) dan simpan
   URL utuh, termasuk query string. Untuk demo, frontend memakai base URL tanpa

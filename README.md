@@ -14,7 +14,7 @@ Simulasi fitur **"Analisis AI"** untuk portal [Satu Data Kota Depok](https://sat
 | Integrasi Tableau | Memakai **JS API v2.8** dan object global `viz`, sama seperti situs asli |
 | Data | Katalog **21 dashboard aktif** dari 25 Data Insight; dashboard #55 menjadi contoh default |
 | Navigasi | Bar **Mode Simulasi** untuk memilih dashboard lain atau menempel link Tableau Public sendiri |
-| Ukuran dashboard | Container `600px` dengan scroll internal dan viz `1400px`, sama seperti portal asli; ada tombol **Perbesar** untuk layar penuh |
+| Ukuran dashboard | Ukuran asli tiap dashboard dibaca dari Tableau; tersedia mode **Fit lebar** (default) dan **Ukuran asli** dengan scroll horizontal/vertikal, plus tombol **Perbesar** |
 | Privasi | Kolom PII (`nama`, `NIK`, `NIP`, `alamat`, dll.) dimasking sebelum dikirim ke LLM |
 | Cache | Key berbasis `dashboard_id` + hash konten, dengan fallback in-memory |
 | Keamanan | CORS dibatasi, rate limit per IP, validasi host scraping (anti-SSRF) |

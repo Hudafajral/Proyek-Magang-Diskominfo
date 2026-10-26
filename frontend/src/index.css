@@ -296,11 +296,27 @@ main.container-xxl {
   height: 600px;
   overflow: auto;
   background: #fff;
+  scrollbar-gutter: stable;
   -webkit-overflow-scrolling: touch;
 }
 
-.tableau-frame iframe {
+.tableau-canvas {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.tableau-viz {
+  transform-origin: top left;
+}
+
+.tableau-viz iframe {
+  display: block;
   border: 0;
+}
+
+.tableau-mode-toggle .btn {
+  white-space: nowrap;
 }
 
 .tableau-scroll-hint {
