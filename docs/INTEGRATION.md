@@ -84,7 +84,9 @@ document.getElementById('btn-ai-insight').addEventListener('click', async functi
           const rows = table.getData().map(function (row) {
             const record = {};
             row.forEach(function (cell, index) {
-              record[columns[index] || ('kolom_' + index)] = cell.getFormattedValue();
+              // Tableau JS API v2.8 mengembalikan objek { formattedValue, value }.
+              record[columns[index] || ('kolom_' + index)] =
+                cell?.formattedValue ?? cell?.value ?? cell;
             });
             return record;
           });
@@ -168,6 +170,21 @@ function escapeHtml(value) {
 }
 </script>
 ```
+
+### Catatan ukuran dan URL Tableau
+
+- Pertahankan perilaku portal asli: container `#tableauViz` memakai
+  `max-width:100%; height:600px; overflow:auto;`, sedangkan opsi Tableau memakai
+  `height: "1400px"`. Dengan begitu bagian bawah dashboard bisa digulir dan tidak
+  terpotong.
+- Jika ingin menambahkan tombol **Perbesar**, buat wrapper yang memenuhi viewport,
+  lalu tetap beri `overflow:auto` pada container Tableau. Jangan mengubah tinggi
+  iframe menjadi `100%` tanpa pengaturan fit dashboard, karena dashboard bisa
+  terpotong.
+- Banyak URL Tableau di database portal asli tersimpan terpotong tepat **100
+  karakter**. Perbaiki panjang kolom URL (mis. `TEXT`/`VARCHAR(500)`) dan simpan
+  URL utuh, termasuk query string. Untuk demo, frontend memakai base URL tanpa
+  query agar dashboard tetap terbuka.
 
 ---
 

@@ -41,11 +41,14 @@
 │   │   ├── App.jsx
 │   │   ├── components
 │   │   │   ├── AnalyzeButton.jsx
+│   │   │   ├── DashboardPicker.jsx
 │   │   │   ├── InsightModal.jsx
 │   │   │   ├── SiteFooter.jsx
 │   │   │   ├── SiteHeader.jsx
 │   │   │   └── TableauViewer.jsx
 │   │   ├── config.js
+│   │   ├── data
+│   │   │   └── dashboards.json
 │   │   ├── index.css
 │   │   └── main.jsx
 │   └── vite.config.js

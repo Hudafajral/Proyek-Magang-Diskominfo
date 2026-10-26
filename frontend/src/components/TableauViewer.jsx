@@ -30,12 +30,34 @@ function loadTableauApi() {
   });
 }
 
+function withTimeout(promise, timeoutMs, label) {
+  return new Promise((resolve, reject) => {
+    const timer = window.setTimeout(() => {
+      reject(new Error(`${label} melebihi ${Math.round(timeoutMs / 1000)} detik.`));
+    }, timeoutMs);
+
+    Promise.resolve(promise).then(
+      (value) => {
+        window.clearTimeout(timer);
+        resolve(value);
+      },
+      (error) => {
+        window.clearTimeout(timer);
+        reject(error);
+      }
+    );
+  });
+}
+
 export default function TableauViewer({ dashboard }) {
   const containerRef = useRef(null);
   const vizRef = useRef(null);
+  const mountedRef = useRef(true);
+  const abortRef = useRef(null);
 
   const [vizReady, setVizReady] = useState(false);
   const [vizError, setVizError] = useState(null);
+  const [expanded, setExpanded] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState('');
@@ -45,6 +67,12 @@ export default function TableauViewer({ dashboard }) {
   useEffect(() => {
     let cancelled = false;
     let localViz = null;
+    let readyTimer = null;
+    let markReady = null;
+    let firstInteractiveEvent = null;
+
+    setVizReady(false);
+    setVizError(null);
 
     loadTableauApi()
       .then((tableau) => {
@@ -53,11 +81,31 @@ export default function TableauViewer({ dashboard }) {
         localViz = new tableau.Viz(containerRef.current, dashboard.tableauUrl, {
           hideTabs: true,
           width: '100%',
-          height: '600px',
+          // Sama seperti portal asli: viz 1400px di dalam container 600px yang
+          // bisa di-scroll. Jadi dashboard tidak terpotong.
+          height: '1400px',
         });
         vizRef.current = localViz;
         window.__sadepokViz = localViz; // dipakai untuk debugging & integrasi
-        setVizReady(true);
+
+        markReady = () => {
+          if (readyTimer) {
+            window.clearTimeout(readyTimer);
+            readyTimer = null;
+          }
+          if (!cancelled) setVizReady(true);
+        };
+
+        firstInteractiveEvent = tableau.TableauEventName.FIRST_INTERACTIVE;
+        try {
+          localViz.addEventListener(firstInteractiveEvent, markReady);
+        } catch {
+          markReady();
+        }
+
+        // Jangan biarkan overlay menutup dashboard selamanya bila event
+        // FIRST_INTERACTIVE tidak dikirim oleh Tableau.
+        readyTimer = window.setTimeout(markReady, 15000);
       })
       .catch((err) => {
         if (!cancelled) setVizError(err.message);
@@ -65,6 +113,14 @@ export default function TableauViewer({ dashboard }) {
 
     return () => {
       cancelled = true;
+      if (readyTimer) window.clearTimeout(readyTimer);
+      if (localViz && markReady && firstInteractiveEvent) {
+        try {
+          localViz.removeEventListener(firstInteractiveEvent, markReady);
+        } catch {
+          // abaikan
+        }
+      }
       if (localViz) {
         try {
           localViz.dispose();
@@ -79,6 +135,35 @@ export default function TableauViewer({ dashboard }) {
     };
   }, [dashboard.tableauUrl]);
 
+  useEffect(() => {
+    if (!expanded) return undefined;
+
+    document.body.classList.add('tableau-expanded');
+    const handleKeyDown = (event) => {
+      // Jangan tutup mode perbesar saat Escape dipakai untuk menutup modal AI.
+      if (
+        event.key === 'Escape' &&
+        !document.querySelector('.insight-overlay')
+      ) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.classList.remove('tableau-expanded');
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [expanded]);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+      abortRef.current?.abort();
+    };
+  }, []);
+
   const extractData = useCallback(async () => {
     const viz = vizRef.current;
     if (!viz) {
@@ -90,14 +175,14 @@ export default function TableauViewer({ dashboard }) {
       // Tableau kadang belum siap walau iframe sudah tampil. Coba beberapa kali
       // sebelum menyerah dan memakai fallback screenshot di backend.
       let workbook = null;
-      for (let attempt = 0; attempt < 10; attempt += 1) {
+      for (let attempt = 0; attempt < 4; attempt += 1) {
         try {
-          workbook = await viz.getWorkbook();
+          workbook = await withTimeout(viz.getWorkbook(), 1200, 'getWorkbook');
         } catch {
           workbook = null;
         }
         if (workbook) break;
-        await new Promise((resolve) => setTimeout(resolve, 500));
+        await new Promise((resolve) => setTimeout(resolve, 400));
       }
 
       if (!workbook) {
@@ -105,13 +190,27 @@ export default function TableauViewer({ dashboard }) {
         return null;
       }
 
-      const activeSheet = workbook.getActiveSheet();
-      let sheets = [];
-
-      if (activeSheet && typeof activeSheet.getWorksheets === 'function') {
-        sheets = activeSheet.getWorksheets();
+      let activeSheet = null;
+      try {
+        activeSheet = workbook.getActiveSheet();
+      } catch (err) {
+        console.warn('[AI Insight] Active sheet belum siap:', err);
       }
-      if (!sheets || sheets.length === 0) {
+
+      if (!activeSheet) {
+        console.warn('[AI Insight] Active sheet kosong, memakai fallback.');
+        return null;
+      }
+
+      let sheets = [];
+      try {
+        if (typeof activeSheet.getWorksheets === 'function') {
+          sheets = activeSheet.getWorksheets() || [];
+        }
+      } catch (err) {
+        console.warn('[AI Insight] Daftar worksheet tidak terbaca:', err);
+      }
+      if (sheets.length === 0) {
         sheets = [activeSheet];
       }
 
@@ -124,8 +223,16 @@ export default function TableauViewer({ dashboard }) {
         sheets.length
       );
 
+      // Batasi total waktu ekstraksi agar dashboard yang lambat tidak membuat
+      // modal AI menggantung. Bila lewat batas, backend memakai screenshot.
+      const deadline = Date.now() + 15000;
       const result = [];
       for (const sheet of sheets) {
+        if (Date.now() >= deadline) {
+          console.warn('[AI Insight] Batas waktu ekstraksi tercapai.');
+          break;
+        }
+
         if (!sheet || typeof sheet.getSummaryDataAsync !== 'function') {
           console.warn(
             '[AI Insight] Sheet tidak mendukung getSummaryDataAsync:',
@@ -135,7 +242,11 @@ export default function TableauViewer({ dashboard }) {
         }
 
         try {
-          const table = await sheet.getSummaryDataAsync({ maxRows: 1000 });
+          const table = await withTimeout(
+            sheet.getSummaryDataAsync({ maxRows: 1000 }),
+            5000,
+            `Data sheet "${sheet?.getName?.() || 'tanpa nama'}"`
+          );
           const columns = table.getColumns().map((column) => column.getFieldName());
           const rows = table.getData().map((row) => {
             const record = {};
@@ -169,6 +280,12 @@ export default function TableauViewer({ dashboard }) {
   }, []);
 
   const handleAnalyze = async () => {
+    if (!mountedRef.current) return;
+
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+
     setInsightData(null);
     setErrorMsg(null);
     setModalOpen(true);
@@ -176,10 +293,8 @@ export default function TableauViewer({ dashboard }) {
     setStep('Membaca data dashboard...');
 
     try {
-      let tableData = null;
-      if (vizReady) {
-        tableData = await extractData();
-      }
+      const tableData = await extractData();
+      if (!mountedRef.current) return;
 
       setStep(
         tableData
@@ -190,6 +305,7 @@ export default function TableauViewer({ dashboard }) {
       const response = await fetch(`${API_BASE}/api/analyze-dashboard`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           url: dashboard.tableauUrl,
           dashboard_id: dashboard.id,
@@ -205,13 +321,27 @@ export default function TableauViewer({ dashboard }) {
       }
 
       const result = await response.json();
-      setInsightData(result);
+      if (mountedRef.current) setInsightData(result);
     } catch (err) {
+      if (err.name === 'AbortError' || !mountedRef.current) return;
       setErrorMsg(err.message || 'Koneksi ke server analisis gagal.');
     } finally {
+      if (mountedRef.current && abortRef.current === controller) {
+        abortRef.current = null;
+        setIsLoading(false);
+        setStep('');
+      }
+    }
+  };
+
+  const handleCloseModal = () => {
+    if (isLoading) {
+      abortRef.current?.abort();
+      abortRef.current = null;
       setIsLoading(false);
       setStep('');
     }
+    setModalOpen(false);
   };
 
   const handleDownload = (kind) => {
@@ -285,14 +415,44 @@ export default function TableauViewer({ dashboard }) {
           <i className="far fa-calendar me-1" aria-hidden="true" /> {dashboard.date}
         </span>
         <span>
-          <i className="fas fa-eye me-1" aria-hidden="true" /> {dashboard.views}
+          <i className="fas fa-eye me-1" aria-hidden="true" />{' '}
+          {dashboard.isCustom
+            ? '—'
+            : Number(dashboard.views || 0).toLocaleString('id-ID')}
         </span>
         <span className="text-muted small">
-          Sumber: Tableau Public · Data Insight #{dashboard.id}
+          Sumber: Tableau Public ·{' '}
+          {dashboard.isCustom ? 'Dashboard kustom' : `Data Insight #${dashboard.id}`}
         </span>
+        <button
+          type="button"
+          className="btn btn-sm btn-outline-secondary ms-auto"
+          onClick={() => setExpanded(true)}
+          aria-label={`Perbesar dashboard ${dashboard.title}`}
+          title="Buka dashboard dalam layar penuh"
+        >
+          <i className="fas fa-expand me-1" aria-hidden="true" />
+          Perbesar
+        </button>
       </div>
 
-      <div className="tableau-shell">
+      <div className={`tableau-shell${expanded ? ' is-expanded' : ''}`}>
+        {expanded && (
+          <div className="tableau-expanded-bar">
+            <div className="tableau-expanded-title">
+              <span className="tableau-expanded-label">Mode perbesar</span>
+              <strong>{dashboard.title}</strong>
+            </div>
+            <button
+              type="button"
+              className="btn btn-sm btn-dark"
+              onClick={() => setExpanded(false)}
+            >
+              <i className="fas fa-compress me-1" aria-hidden="true" />
+              Tutup
+            </button>
+          </div>
+        )}
         <div id="tableauViz" ref={containerRef} className="tableau-frame" />
         {!vizReady && !vizError && (
           <div className="tableau-loading" role="status" aria-live="polite">
@@ -309,9 +469,17 @@ export default function TableauViewer({ dashboard }) {
         )}
       </div>
 
+      {!expanded && (
+        <div className="tableau-scroll-hint">
+          <i className="fas fa-arrows-up-down me-1" aria-hidden="true" />
+          Gulir di dalam dashboard untuk melihat bagian bawah, atau klik{' '}
+          <strong>Perbesar</strong>.
+        </div>
+      )}
+
       <InsightModal
         isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={handleCloseModal}
         data={insightData}
         isLoading={isLoading}
         step={step}
