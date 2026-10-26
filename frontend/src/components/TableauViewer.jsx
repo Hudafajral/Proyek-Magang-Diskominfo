@@ -49,7 +49,44 @@ function withTimeout(promise, timeoutMs, label) {
   });
 }
 
+function ViewModeToggle({ mode, onChange, canUseOriginal }) {
+  return (
+    <div
+      className="btn-group btn-group-sm tableau-mode-toggle"
+      role="group"
+      aria-label="Ukuran tampilan dashboard"
+    >
+      <button
+        type="button"
+        className={`btn ${mode === 'fit' ? 'btn-dark' : 'btn-outline-secondary'}`}
+        aria-pressed={mode === 'fit'}
+        onClick={() => onChange('fit')}
+        title="Sesuaikan dashboard dengan lebar area"
+      >
+        <i className="fas fa-arrows-left-right me-1" aria-hidden="true" />
+        Fit lebar
+      </button>
+      <button
+        type="button"
+        className={`btn ${mode === 'original' ? 'btn-dark' : 'btn-outline-secondary'}`}
+        aria-pressed={mode === 'original'}
+        onClick={() => onChange('original')}
+        disabled={!canUseOriginal}
+        title={
+          canUseOriginal
+            ? 'Tampilkan dashboard pada ukuran aslinya'
+            : 'Ukuran asli belum tersedia untuk dashboard ini'
+        }
+      >
+        <i className="fas fa-arrow-up-right-from-square me-1" aria-hidden="true" />
+        Ukuran asli
+      </button>
+    </div>
+  );
+}
+
 export default function TableauViewer({ dashboard }) {
+  const frameRef = useRef(null);
   const containerRef = useRef(null);
   const vizRef = useRef(null);
   const mountedRef = useRef(true);
@@ -58,6 +95,9 @@ export default function TableauViewer({ dashboard }) {
   const [vizReady, setVizReady] = useState(false);
   const [vizError, setVizError] = useState(null);
   const [expanded, setExpanded] = useState(false);
+  const [fitMode, setFitMode] = useState('fit');
+  const [sheetSize, setSheetSize] = useState(null);
+  const [frameWidth, setFrameWidth] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [step, setStep] = useState('');
@@ -73,6 +113,8 @@ export default function TableauViewer({ dashboard }) {
 
     setVizReady(false);
     setVizError(null);
+    setSheetSize(null);
+    setFitMode('fit');
 
     loadTableauApi()
       .then((tableau) => {
@@ -81,19 +123,48 @@ export default function TableauViewer({ dashboard }) {
         localViz = new tableau.Viz(containerRef.current, dashboard.tableauUrl, {
           hideTabs: true,
           width: '100%',
-          // Sama seperti portal asli: viz 1400px di dalam container 600px yang
-          // bisa di-scroll. Jadi dashboard tidak terpotong.
+          // Nilai awal; setelah dashboard siap, ukuran asli dibaca dari Tableau
+          // dan mode Fit lebar/Ukuran asli akan menyesuaikan tampilan.
           height: '1400px',
         });
         vizRef.current = localViz;
         window.__sadepokViz = localViz; // dipakai untuk debugging & integrasi
+
+        const readSheetSize = () => {
+          try {
+            const activeSheet = localViz.getWorkbook().getActiveSheet();
+            const size = activeSheet?.getSize?.();
+            const behavior = String(size?.behavior || '').toLowerCase();
+            if (behavior === 'exactly') {
+              const dims = size.maxSize || size.minSize;
+              const width = Number(dims?.width);
+              const height = Number(dims?.height);
+              if (width > 0 && height > 0) {
+                setSheetSize({ width, height });
+                try {
+                  localViz.setFrameSize(width, height);
+                } catch (err) {
+                  console.warn('[Tableau] Gagal menyetel ukuran iframe:', err);
+                }
+                return;
+              }
+            }
+            setSheetSize(null);
+          } catch (err) {
+            console.warn('[Tableau] Ukuran dashboard tidak terbaca:', err);
+            setSheetSize(null);
+          }
+        };
 
         markReady = () => {
           if (readyTimer) {
             window.clearTimeout(readyTimer);
             readyTimer = null;
           }
-          if (!cancelled) setVizReady(true);
+          if (!cancelled) {
+            setVizReady(true);
+            readSheetSize();
+          }
         };
 
         firstInteractiveEvent = tableau.TableauEventName.FIRST_INTERACTIVE;
@@ -154,6 +225,32 @@ export default function TableauViewer({ dashboard }) {
       document.body.classList.remove('tableau-expanded');
       document.removeEventListener('keydown', handleKeyDown);
     };
+  }, [expanded]);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return undefined;
+
+    const updateWidth = () => {
+      setFrameWidth(frame.clientWidth);
+    };
+    updateWidth();
+
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', updateWidth);
+      return () => window.removeEventListener('resize', updateWidth);
+    }
+
+    const observer = new ResizeObserver(updateWidth);
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, []);
+
+  // ResizeObserver bisa tertunda saat tab tidak aktif; pastikan skala ikut
+  // berubah segera setelah masuk/keluar mode Perbesar.
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (frame) setFrameWidth(frame.clientWidth);
   }, [expanded]);
 
   useEffect(() => {
@@ -367,6 +464,34 @@ export default function TableauViewer({ dashboard }) {
     }
   };
 
+  const hasExactSize = Boolean(sheetSize?.width && sheetSize?.height);
+  const fitScale =
+    hasExactSize && frameWidth > 0
+      ? Math.min(1, frameWidth / sheetSize.width)
+      : 1;
+  const scale = fitMode === 'original' ? 1 : fitScale;
+  const canvasWidth = hasExactSize
+    ? Math.max(1, Math.round(sheetSize.width * scale))
+    : null;
+  const canvasHeight = hasExactSize
+    ? Math.max(1, Math.round(sheetSize.height * scale))
+    : null;
+  const canvasStyle = hasExactSize
+    ? {
+        width: `${canvasWidth}px`,
+        height: `${canvasHeight}px`,
+        margin: fitMode === 'fit' ? '0 auto' : 0,
+      }
+    : undefined;
+  const vizStyle = hasExactSize
+    ? {
+        width: `${sheetSize.width}px`,
+        height: `${sheetSize.height}px`,
+        transform: `scale(${scale})`,
+        transformOrigin: 'top left',
+      }
+    : undefined;
+
   return (
     <div className="dashboard-block">
       <div className="section-title d-md-flex justify-content-between align-items-start">
@@ -436,16 +561,23 @@ export default function TableauViewer({ dashboard }) {
           Sumber: Tableau Public ·{' '}
           {dashboard.isCustom ? 'Dashboard kustom' : `Data Insight #${dashboard.id}`}
         </span>
-        <button
-          type="button"
-          className="btn btn-sm btn-outline-secondary ms-auto"
-          onClick={() => setExpanded(true)}
-          aria-label={`Perbesar dashboard ${dashboard.title}`}
-          title="Buka dashboard dalam layar penuh"
-        >
-          <i className="fas fa-expand me-1" aria-hidden="true" />
-          Perbesar
-        </button>
+        <div className="ms-auto d-flex align-items-center gap-2 flex-wrap">
+          <ViewModeToggle
+            mode={fitMode}
+            onChange={setFitMode}
+            canUseOriginal={hasExactSize}
+          />
+          <button
+            type="button"
+            className="btn btn-sm btn-outline-secondary"
+            onClick={() => setExpanded(true)}
+            aria-label={`Perbesar dashboard ${dashboard.title}`}
+            title="Buka dashboard dalam layar penuh"
+          >
+            <i className="fas fa-expand me-1" aria-hidden="true" />
+            Perbesar
+          </button>
+        </div>
       </div>
 
       <div className={`tableau-shell${expanded ? ' is-expanded' : ''}`}>
@@ -455,17 +587,33 @@ export default function TableauViewer({ dashboard }) {
               <span className="tableau-expanded-label">Mode perbesar</span>
               <strong>{dashboard.title}</strong>
             </div>
-            <button
-              type="button"
-              className="btn btn-sm btn-dark"
-              onClick={() => setExpanded(false)}
-            >
-              <i className="fas fa-compress me-1" aria-hidden="true" />
-              Tutup
-            </button>
+            <div className="d-flex align-items-center gap-2 flex-wrap">
+              <ViewModeToggle
+                mode={fitMode}
+                onChange={setFitMode}
+                canUseOriginal={hasExactSize}
+              />
+              <button
+                type="button"
+                className="btn btn-sm btn-dark"
+                onClick={() => setExpanded(false)}
+              >
+                <i className="fas fa-compress me-1" aria-hidden="true" />
+                Tutup
+              </button>
+            </div>
           </div>
         )}
-        <div id="tableauViz" ref={containerRef} className="tableau-frame" />
+        <div className="tableau-frame" ref={frameRef}>
+          <div className="tableau-canvas" style={canvasStyle}>
+            <div
+              id="tableauViz"
+              ref={containerRef}
+              className="tableau-viz"
+              style={vizStyle}
+            />
+          </div>
+        </div>
         {!vizReady && !vizError && (
           <div className="tableau-loading" role="status" aria-live="polite">
             <span className="spinner-border text-primary" aria-hidden="true" />
@@ -484,7 +632,9 @@ export default function TableauViewer({ dashboard }) {
       {!expanded && (
         <div className="tableau-scroll-hint">
           <i className="fas fa-arrows-up-down me-1" aria-hidden="true" />
-          Gulir di dalam dashboard untuk melihat bagian bawah, atau klik{' '}
+          {fitMode === 'original'
+            ? 'Gulir ke samping dan ke bawah untuk melihat seluruh dashboard, atau klik '
+            : 'Gulir ke bawah untuk melihat bagian bawah dashboard, atau klik '}
           <strong>Perbesar</strong>.
         </div>
       )}

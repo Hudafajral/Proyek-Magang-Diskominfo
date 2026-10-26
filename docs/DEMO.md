@@ -43,8 +43,11 @@ dipasang tepat di sebelah tombol Unduh, tanpa mengubah dashboard aslinya."
 - Tunjuk tombol **Unduh** yang sudah ada dan tombol **Analisis AI** di sebelahnya.
 - Tunjukkan bar **Mode Simulasi**: ada 21 dashboard aktif. Ganti ke dashboard lain
   (mis. #54 atau #21) untuk membuktikan halaman tidak hardcoded ke #55.
+- Tunjukkan mode **Fit lebar** dan **Ukuran asli**: beberapa dashboard punya
+  ukuran/panel kiri-kanan berbeda, sehingga mode Fit lebar mengecilkan seluruh
+  dashboard dan mode Ukuran asli menyediakan scroll horizontal/vertikal.
 - Scroll di dalam area dashboard, lalu klik **Perbesar** untuk menunjukkan mode
-  layar penuh. Tekankan layout dan ukuran meniru `datainsightDetail/55`.
+  layar penuh. Tekankan layout tetap meniru `datainsightDetail/55`.
 
 ### 1:00 — Klik Analisis AI (30 detik)
 
@@ -106,7 +109,7 @@ dijadikan pilot pertama?"
 | Apakah harus ubah dashboard? | Tidak. Memakai object `viz` yang sudah ada. |
 | Kalau Tableau membatasi data? | Backend fallback ke screenshot. |
 | Apakah bisa untuk semua dashboard? | Simulasi sudah menyediakan 21 dashboard aktif. Empat link Tableau di portal asli rusak (404), jadi perlu perbaikan data dulu. Pilot tetap dimulai dari 3–5 dashboard dengan struktur berbeda. |
-| Kenapa dashboard bisa di-scroll? | Sama seperti portal asli: container 600px dan viz 1400px, jadi bagian bawah dashboard dapat digulir. Tombol **Perbesar** memperluas area. |
+| Kenapa ukuran dashboard berbeda? | Tiap dashboard punya ukuran publikasi sendiri. Aplikasi membaca ukuran asli dari Tableau; mode **Fit lebar** menyesuaikan ke lebar area, sedangkan **Ukuran asli** memakai ukuran publikasi dengan scroll. Tombol **Perbesar** memperluas area. |
 
 ---
 
